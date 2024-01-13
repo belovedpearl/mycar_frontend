@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import './api/axiosDefaults'
 import SignUpForm from './pages/auth/SignUpForm';
+import SignInForm from './pages/auth/SignInForm';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <Container className={styles.AppHead}>
         <Switch>
           <Route exact path="/" render = {() => <h1>Homepage</h1>} /> 
-          <Route exact path="/signin" render = {() => <h1>SignIn</h1>} />
+          <Route exact path="/signin" render = {() => <SignInForm /> } />
           <Route exact path="/signup" render = {() => <SignUpForm /> } /> 
           <Route render = {() => <h1>Page not found</h1>} /> 
         </Switch>

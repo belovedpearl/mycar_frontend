@@ -7,6 +7,9 @@
   background-color: #ffffff;
   min-height: 100vh;
 }
+.AppHead {
+  padding-top: 70px;
+}
 
 a {
   color: #FFFFFF;
@@ -36,9 +39,7 @@ i:hover {
   color:#848484;
 }
 
-.Main {
-  padding-top: 81px;
-}
+
 
 .Content {
   background-color: #ffffff;

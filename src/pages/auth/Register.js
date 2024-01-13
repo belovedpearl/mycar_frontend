@@ -8,6 +8,8 @@ import appStyles from "../../App.module.css";
 import CoverImage from '../../assets/img.jpeg';
 
 import { Button, Form, Image, Col, Row, Container } from "react-bootstrap";
+import axios from "axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState (
@@ -18,12 +20,24 @@ const SignUpForm = () => {
     }
   )
   const {username, password1, password2} = signUpData
+  const history = useHistory();
+  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
       [event.target.name]: event.target.value,
     });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post("/dj-rest-auth/registration/", signUpData);
+      history.push("/signin");  
+    } catch (err) {
+      setErrors(err.response?.data);
+    }
   };
 
   
@@ -36,7 +50,7 @@ const SignUpForm = () => {
           <h1 className={styles.Header}>SIGN UP</h1>
          
          {/* Registration form */}
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control 

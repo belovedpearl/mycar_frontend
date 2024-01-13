@@ -39,13 +39,12 @@ i:hover {
   color:#848484;
 }
 
-
-
 .Content {
-  background-color: #ffffff;
-  padding: 10px;
-  border-radius: 2px;
-  border: 1px solid #dadadf;
+  background-color: #848484;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #001F3F;
+  
 }
 
 .FillerImage {

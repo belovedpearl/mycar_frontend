@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
@@ -8,8 +8,33 @@ import appStyles from "../../App.module.css";
 import CoverImage from '../../assets/img.jpeg';
 
 import { Button, Form, Image, Col, Row, Container } from "react-bootstrap";
+import axios from "axios";
 
 const SignInForm = () => {
+    const [signInData, setSignInData] = useState(
+        {
+            username: '',
+            password: ''
+        }
+    )
+    const { username, password } = signInData;
+
+    const handleChange = (event) => {
+        setSignInData({
+          ...signInData,
+          [event.target.name]: event.target.value,
+        });
+       };
+    
+    const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+        await axios.post("/dj-rest-auth/login/", signInData);
+    } catch (err) {
+        console.log(err)
+    }
+    };
+    
   return (
     <div>
         <Row className={styles.Row}>
@@ -29,7 +54,7 @@ const SignInForm = () => {
                 <Container className= "p-4">
                 <h1 className={styles.Header}>SIGN IN</h1>
                 {/* Sign in form */}
-                <Form >
+                <Form onSubmit={handleSubmit} >
                     <Form.Group controlId="username">
                     <Form.Label className="d-none">Username</Form.Label>
                     <Form.Control 
@@ -37,18 +62,20 @@ const SignInForm = () => {
                         type="text" 
                         placeholder="Enter username" 
                         name="username"
-                        
-                        
+                        value= {username}
+                        onChange={handleChange}                       
                     />
                     </Form.Group>
 
-                    <Form.Group controlId="password1">
+                    <Form.Group controlId="password">
                     <Form.Label className="d-none">Password</Form.Label>
                     <Form.Control
                         className={styles.Input} 
                         type="password" 
                         placeholder="Password"
-                        name="password1"
+                        name="password"
+                        value= {password}
+                        onChange={handleChange}
                         
                     />
                     </Form.Group>

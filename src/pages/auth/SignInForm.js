@@ -8,7 +8,9 @@ import appStyles from "../../App.module.css";
 import CoverImage from '../../assets/img.jpeg';
 
 import { Button, Form, Image, Col, Row, Container } from "react-bootstrap";
+import Alert from "react-bootstrap/Alert";
 import axios from "axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SignInForm = () => {
     const [signInData, setSignInData] = useState(
@@ -18,6 +20,8 @@ const SignInForm = () => {
         }
     )
     const { username, password } = signInData;
+    const history = useHistory()
+    const [errors, setErrors] = useState({})
 
     const handleChange = (event) => {
         setSignInData({
@@ -30,8 +34,9 @@ const SignInForm = () => {
     event.preventDefault();
     try {
         await axios.post("/dj-rest-auth/login/", signInData);
+        history.push("/")
     } catch (err) {
-        console.log(err)
+        setErrors(err.response?.data);
     }
     };
     
@@ -66,6 +71,11 @@ const SignInForm = () => {
                         onChange={handleChange}                       
                     />
                     </Form.Group>
+                    {errors.username?.map((message, idx) => (
+                        <Alert key={idx} variant="warning">
+                            {message}
+                        </Alert>
+                    ))}
 
                     <Form.Group controlId="password">
                     <Form.Label className="d-none">Password</Form.Label>
@@ -79,6 +89,12 @@ const SignInForm = () => {
                         
                     />
                     </Form.Group>
+                    {errors.password?.map((message, idx) => (
+                        <Alert key={idx} variant="warning" >
+                            {message}
+                        </Alert>
+                    ))}
+
 
                     
                     <Button 

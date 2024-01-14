@@ -3,19 +3,18 @@ import { Container, Navbar, Nav } from 'react-bootstrap'
 import styles from '../styles/NavBar.module.css'
 import logo from '../assets/logo.png'
 import { NavLink } from 'react-router-dom'
-import { useContext } from 'react'
-import { CurrentUserContext } from '../App'
+
+import { useCurrentUser } from '../contexts/CurrentUserContext'
 
 const NavBar = () => {
-    const currentUser = useContext(CurrentUserContext)
+    const currentUser = useCurrentUser()
 
     const signedOutIcons = 
                     <>
                         <NavLink to = "/signin" className={`${styles.NavLink} mr-2`} activeClassName = {styles.Active}>
                             <i className="fas fa-right-to-bracket mr-1"></i>
                             Sign in
-                        </NavLink>
-            
+                        </NavLink>           
                         <NavLink to = "/signup" className={`${styles.NavLink} mr-2`} activeClassName = {styles.Active}>
                             <i className="fas fa-user-plus mr-1"></i>
                             Sign up
@@ -25,10 +24,6 @@ const NavBar = () => {
                         <>
                             {currentUser?.username}
                         </>
-                        
- 
-
-
   return (
     <div>
         <Navbar className={styles.NavBar} expand="md" fixed='top'>

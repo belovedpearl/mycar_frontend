@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
@@ -11,10 +11,10 @@ import { Button, Form, Image, Col, Row, Container } from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { SetCurrentUserContext } from "../../App";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 const SignInForm = () => {
-    const setCurrentUser = useContext(SetCurrentUserContext)
+    const setCurrentUser = useSetCurrentUser()
     const [signInData, setSignInData] = useState(
         {
             username: '',
@@ -37,6 +37,7 @@ const SignInForm = () => {
     try {
         const {data} = await axios.post("/dj-rest-auth/login/", signInData);
         setCurrentUser(data.user)
+
         history.push("/")
     } catch (err) {
         setErrors(err.response?.data);
@@ -96,10 +97,7 @@ const SignInForm = () => {
                         <Alert key={idx} variant="warning" >
                             {message}
                         </Alert>
-                    ))}
-
-
-                    
+                    ))}                   
                     <Button 
                     className={`${btnStyles.Button} ${btnStyles.Broad} ${btnStyles.Sharp}`} 
                     type="submit"
@@ -119,8 +117,7 @@ const SignInForm = () => {
                     </Link>
                 </p>
                 </Container>
-            </Col>
-            
+            </Col>            
       </Row>
     </div>
   )

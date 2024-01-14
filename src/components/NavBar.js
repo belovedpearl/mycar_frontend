@@ -4,10 +4,10 @@ import styles from '../styles/NavBar.module.css'
 import logo from '../assets/logo.png'
 import { NavLink } from 'react-router-dom'
 import { useContext } from 'react'
-import { SetCurrentUserContext } from '../App'
+import { CurrentUserContext } from '../App'
 
 const NavBar = () => {
-    const currentUser = useContext(SetCurrentUserContext)
+    const currentUser = useContext(CurrentUserContext)
 
     const signedOutIcons = 
                     <>
@@ -25,6 +25,8 @@ const NavBar = () => {
                         <>
                             {currentUser?.username}
                         </>
+                        
+ 
 
 
   return (

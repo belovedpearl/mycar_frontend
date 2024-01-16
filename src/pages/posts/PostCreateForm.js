@@ -49,25 +49,25 @@ function PostCreateForm() {
 
   const textFields = (
     <div className="text-center">
-      {/* Add your form fields here */}
-      <Form>
       {/* Car Make Input */}
       <Form.Group controlId="make">
         <Form.Label className="d-none">Car Make</Form.Label>
         <Form.Control 
           type="text" 
           placeholder="Enter car make" 
+          name="make"
           value={make} 
           onChange={handleChange}
         />
       </Form.Group>
 
-      {/* Car Model Input */}
+       {/* Car Model Input */}
       <Form.Group controlId="model">
         <Form.Label className="d-none">Car Model</Form.Label>
         <Form.Control 
           type="text" 
           placeholder="Enter car model" 
+          name="model"
           value={model} 
           onChange={handleChange}
         />
@@ -76,7 +76,13 @@ function PostCreateForm() {
       {/* Car Year Input */}
       <Form.Group controlId="year">
         <Form.Label className="d-none">Car Year</Form.Label>
-        <Form.Control type="number" placeholder="Enter car year" value={year} onChange={handleChange} />
+        <Form.Control 
+          type="number" 
+          placeholder="Enter car year" 
+          name="year"
+          value={year} 
+          onChange={handleChange} 
+        />
       </Form.Group>
 
       {/* Car Description Input */}
@@ -86,10 +92,11 @@ function PostCreateForm() {
           as="textarea" 
           rows={3} 
           placeholder="Enter car description" 
+          name="description"
           value={description}
           onChange={handleChange}
           />
-      </Form.Group>
+      </Form.Group> 
       
        {/* Car Body Type */}
       <Form.Group controlId="body_types">
@@ -112,7 +119,7 @@ function PostCreateForm() {
           <option>Others</option>
         </Form.Control>
       </Form.Group>
-    </Form>
+    
     
     
       <Button

@@ -9,6 +9,7 @@ import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import Post from "./Post";
 
 function PostsPage({message, filter= ''}) {
     const [posts, setPosts] = useState({ results: [] });
@@ -38,9 +39,22 @@ function PostsPage({message, filter= ''}) {
   
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <Col md={2}></Col>
+      <Col className="py-2 p-0 p-lg-2" lg={6}>
         <p>Popular profiles mobile</p>
-        
+        {hasLoaded ? (
+          <>
+          {posts.results.length ? (
+            posts.results.map((post) => (
+              <Post key={post.id} {...post} setPosts={setPosts} />
+            ))
+          ) : (
+            console.log('display no results')
+          )}
+        </>
+        ) : (
+        console.log('display a spinner')
+        )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <p>Popular profiles for desktop</p>

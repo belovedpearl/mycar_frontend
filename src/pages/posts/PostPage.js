@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import Post from "./Post";
 
 function PostPage() {
   // Add your logic here
@@ -36,7 +37,8 @@ function PostPage() {
       </Col>
       <Col className="py-2 p-0 p-lg-2" lg={6}>
         <p>Popular profiles for mobile</p>
-        <p>Post component</p>
+        {/* Post Component here */}
+        <Post {...post.results[0]} setPosts= {setPost} postPage/>
         <Container className={appStyles.Content}>
           Comments
         </Container>

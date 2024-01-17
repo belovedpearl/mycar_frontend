@@ -57,6 +57,23 @@ const Post = (props) => {
          console.log (err)
         }
      }
+     const removeUpvote = async () => {
+        try {
+             // send a delete request
+          await axiosRes.delete(`/upvotes/${upvote_id}/`);
+          setPosts((prevPosts) => ({
+            ...prevPosts,
+            results: prevPosts.results.map((post) => {
+              return post.id === id
+                ? { ...post, upvotes_count: post.upvotes_count - 1, upvote_id: null }
+                : post;
+            }),
+          }));
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
 
      const handleDownvote = async () => {
         try {
@@ -79,6 +96,23 @@ const Post = (props) => {
          console.log (err)
         }
      }
+
+     const removeDownvote = async () => {
+        try {
+             // send a delete request
+          await axiosRes.delete(`/downvotes/${downvote_id}/`);
+          setPosts((prevPosts) => ({
+            ...prevPosts,
+            results: prevPosts.results.map((post) => {
+              return post.id === id
+                ? { ...post, downvotes_count: post.downvotes_count - 1, downvote_id: null }
+                : post;
+            }),
+          }));
+        } catch (err) {
+          console.log(err);
+        }
+      };
 
   return (
     <div>
@@ -120,7 +154,7 @@ const Post = (props) => {
                         <FaRegThumbsUp className={`${styles.Heart} mr-2`} size={25}/>
                         </OverlayTrigger>
                     ) : upvote_id ? (
-                        <span onClick={() =>{}}>
+                        <span onClick={removeUpvote}>
                         <FaRegThumbsUp className={`${styles.Heart} mr-2`} size={25} />
                         </span>
                     ) : currentUser ? (
@@ -147,7 +181,7 @@ const Post = (props) => {
                     <FaRegThumbsDown className={`${styles.Heart} mr-2`} size={25}/>
                     </OverlayTrigger>
                 ) : downvote_id ? (
-                    <span onClick={()=>{}}>
+                    <span onClick={removeDownvote}>
                     <FaRegThumbsDown className={`${styles.Heart} mr-2`} size={25} />
                     </span>
                 ) : currentUser ? (

@@ -7,6 +7,7 @@ import Avatar from '../../components/Avatar';
 import { FaRegThumbsUp } from "react-icons/fa";
 import { FaCommentMedical } from "react-icons/fa6";
 import { FaRegThumbsDown } from "react-icons/fa";
+import { axiosRes } from '../../api/axiosDefaults';
 
 const Post = (props) => {
     const {
@@ -28,11 +29,57 @@ const Post = (props) => {
         upvote_id,
         upvotes_count,
         year, 
-        postPage,   
+        postPage,
+        setPosts 
     } = props;
     
     const currentUser = useCurrentUser()
     const is_owner = currentUser?.username === owner
+
+    const handleUpvote = async () => {
+        try {
+            // check if an downvote exists, prevent upvoting
+            if (downvote_id) {        
+                console.log("Cannot upvote when downvote exists");
+                return;
+            }
+        // send a post request
+        const { data } = await axiosRes.post("/upvotes/", { post: id });
+         setPosts((prevPosts) => ({
+             ...prevPosts,
+             results: prevPosts.results.map((post) => {
+                 return post.id === id
+                   ? { ...post, upvotes_count: post.upvotes_count + 1, upvote_id: data.id }
+                   : post;
+             })
+         }))
+        } catch (err){
+         console.log (err)
+        }
+     }
+
+     const handleDownvote = async () => {
+        try {
+            // check if an upvote exists, prevent downvoting
+            if (upvote_id) {
+                console.log("Cannot downvote when upvote exists");
+                return;
+            }
+         // send a post request
+         const { data } = await axiosRes.post("/downvotes/", { post: id });
+         setPosts((prevPosts) => ({
+             ...prevPosts,
+             results: prevPosts.results.map((post) => {
+                 return post.id === id
+                   ? { ...post, downvotes_count: post.downvotes_count + 1, downvote_id: data.id }
+                   : post;
+             })
+         }))
+        } catch (err){
+         console.log (err)
+        }
+     }
+
   return (
     <div>
          <Card className={styles.Post}>
@@ -70,22 +117,22 @@ const Post = (props) => {
                         placement="top"
                         overlay={<Tooltip>You created the post!</Tooltip>}
                         >
-                        <FaRegThumbsUp className={`${styles.Heart} mr-2`}/>
+                        <FaRegThumbsUp className={`${styles.Heart} mr-2`} size={25}/>
                         </OverlayTrigger>
                     ) : upvote_id ? (
-                        <span onClick={()=>{}}>
-                        <FaRegThumbsUp className={`${styles.Heart} mr-2`} />
+                        <span onClick={() =>{}}>
+                        <FaRegThumbsUp className={`${styles.Heart} mr-2`} size={25} />
                         </span>
                     ) : currentUser ? (
-                        <span onClick={ ()=> {} }>
-                        <FaRegThumbsUp className={`${styles.HeartOutline} mr-2`} size={30}/>
+                        <span onClick={handleUpvote }>
+                        <FaRegThumbsUp className={`${styles.HeartOutline} mr-2`} size={25}/>
                         </span>
                     ) : (
                         <OverlayTrigger
                         placement="top"
-                        overlay={<Tooltip>Log in to add your review!</Tooltip>}
+                        overlay={<Tooltip>Log in to upvote this post!</Tooltip>}
                         >
-                        <FaRegThumbsUp />
+                        <FaRegThumbsUp className={`${styles.HeartOutline} mr-2`} size={25} />
                         </OverlayTrigger>
                     )}
                     {upvotes_count}
@@ -97,22 +144,22 @@ const Post = (props) => {
                     placement="top"
                     overlay={<Tooltip>You created the post!</Tooltip>}
                     >
-                    <FaRegThumbsDown className={`${styles.Heart} mr-2`}/>
+                    <FaRegThumbsDown className={`${styles.Heart} mr-2`} size={25}/>
                     </OverlayTrigger>
                 ) : downvote_id ? (
                     <span onClick={()=>{}}>
-                    <FaRegThumbsDown className={`${styles.Heart} mr-2`}/>
+                    <FaRegThumbsDown className={`${styles.Heart} mr-2`} size={25} />
                     </span>
                 ) : currentUser ? (
-                    <span onClick={ ()=> {} }>
-                    <FaRegThumbsDown className={`${styles.HeartOutline} mr-2`} size={30}/>
+                    <span onClick={ handleDownvote }>
+                    <FaRegThumbsDown className={`${styles.HeartOutline} mr-2`} size={25}/>
                     </span>
                 ) : (
                     <OverlayTrigger
                     placement="top"
                     overlay={<Tooltip>Log in to add your review!</Tooltip>}
                     >
-                    <FaRegThumbsDown className='mr-2'/>
+                    <FaRegThumbsDown className='mr-2' size={25}/>
                     </OverlayTrigger>
                 )}
                 {downvotes_count}
@@ -120,7 +167,7 @@ const Post = (props) => {
                 <div>
                     {/* reviews */}
                 <Link to={`/posts/${id}`} className='mr-1'>
-                    <FaCommentMedical style={{ color: 'black' }} />
+                    <FaCommentMedical style={{ color: 'black' }} size={25} />
                 </Link>
                 {reviews_count}
                 </div>

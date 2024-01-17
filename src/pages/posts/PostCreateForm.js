@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,23 +13,25 @@ import { FaUpload } from "react-icons/fa";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-;
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function PostCreateForm() {
 
-//   const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
     make: "",
     model: "",
     year: "",
     description: "",
-    category: "",
     body_types: "",
     image: ""
   });
   const { make, model, year, description, body_types, image } =
     postData;
+  const imageInput = useRef(null)
+  const history = useHistory()
 
   const handleChange = (event) => {
     setPostData({
@@ -46,7 +48,25 @@ function PostCreateForm() {
       });
     }
   };
-
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("make", make);
+    formData.append("model", model);
+    formData.append("year", year);
+    formData.append("description", description);
+    formData.append("body_types", body_types);
+    formData.append("image", imageInput.current.files[0]);
+    try {
+      const { data } = await axiosReq.post("/posts/", formData);
+      history.push(`/posts/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  }
   const textFields = (
     <div className="text-center">
       {/* Car Make Input */}
@@ -91,7 +111,7 @@ function PostCreateForm() {
         <Form.Control 
           as="textarea" 
           rows={3} 
-          placeholder="Enter car description" 
+          placeholder="Your view about the car" 
           name="description"
           value={description}
           onChange={handleChange}
@@ -124,22 +144,22 @@ function PostCreateForm() {
     
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => {}}
+        onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+        Create
       </Button>
     </div>
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+            className={`${styles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
               {image ? (
@@ -169,13 +189,14 @@ function PostCreateForm() {
                     id="image-upload"
                     accept="image/*"
                     onChange={handleChangeImage}
+                    ref={imageInput}
                 />
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
+          <Container className={styles.Content}>{textFields}</Container>
         </Col>
       </Row>
     </Form>

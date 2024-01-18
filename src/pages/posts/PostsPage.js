@@ -12,10 +12,14 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import NoResults from '../../assets/no-results.png'
 import Asset from '../../components/Assets'
+
+
 function PostsPage({message, filter= ''}) {
     const [posts, setPosts] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
+
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -43,6 +47,16 @@ function PostsPage({message, filter= ''}) {
         <Col md={2}></Col>
       <Col className="py-2 p-0 p-lg-2" lg={6}>
         <p>Popular profiles mobile</p>
+        {/* Search Bar */}
+        <i className= {`fas fa-search ${styles.SearchIcon}`} />
+        <Form className= {styles.SearchBar} onSubmit={(event) => event.preventDefault()}>   
+        <Form.Control
+            type="text"
+            className="mr-sm-2"
+            placeholder="Search posts by make, model, year"
+          />
+        </Form>
+        {/* Post Load */}
         {hasLoaded ? (
           <>
           {posts.results.length ? (
@@ -56,7 +70,7 @@ function PostsPage({message, filter= ''}) {
           )}
         </>
         ) : (
-          <Container className={appStyles.Content}>
+          <Container>
             <Asset spinner />
           </Container>
         )}

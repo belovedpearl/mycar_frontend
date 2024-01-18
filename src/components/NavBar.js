@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom'
 import { MdAddCircleOutline } from "react-icons/md";
 import { FaSignOutAlt } from "react-icons/fa";
 import { BiSolidUserPlus } from "react-icons/bi";
+import { MdOutlineDynamicFeed } from "react-icons/md";
 
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
 import Avatar from './Avatar'
@@ -44,6 +45,13 @@ const NavBar = () => {
                     </>
     const signedInIcons = 
                         <>
+                            <NavLink 
+                                to='/feed'  
+                                className={`ml-3 ${styles.NavLink}`}
+                                >
+                                <MdOutlineDynamicFeed size={30} />
+                                Feed
+                            </NavLink>
                            <NavLink 
                                 to='/'  
                                 className={`ml-3 ${styles.NavLink}`}

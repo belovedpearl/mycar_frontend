@@ -13,6 +13,7 @@ import Post from "./Post";
 import NoResults from '../../assets/no-results.png'
 import Asset from '../../components/Assets'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { fetchMoreData } from "../../utils/utils";
 
 
 function PostsPage({message, filter= ''}) {

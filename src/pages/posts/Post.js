@@ -191,7 +191,7 @@ const Post = (props) => {
                 ) : (
                     <OverlayTrigger
                     placement="top"
-                    overlay={<Tooltip>Log in to add your review!</Tooltip>}
+                    overlay={<Tooltip>Log in to downvote this post!</Tooltip>}
                     >
                     <FaRegThumbsDown className='mr-2' size={25}/>
                     </OverlayTrigger>

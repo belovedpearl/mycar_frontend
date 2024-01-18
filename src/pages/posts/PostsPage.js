@@ -24,7 +24,7 @@ function PostsPage({message, filter= ''}) {
     useEffect(() => {
         const fetchPosts = async () => {
           try {
-            const { data } = await axiosReq.get(`/posts/?${filter}`);
+            const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
             setPosts(data);
             setHasLoaded(true);
           } catch (err) {
@@ -40,7 +40,7 @@ function PostsPage({message, filter= ''}) {
         return () => {
           clearTimeout(timer);
         };
-      }, [filter, pathname]);
+      }, [filter, query, pathname]);
   
   return (
     <Row className="h-100">
@@ -54,6 +54,8 @@ function PostsPage({message, filter= ''}) {
             type="text"
             className="mr-sm-2"
             placeholder="Search posts by make, model, year"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
           />
         </Form>
         {/* Post Load */}

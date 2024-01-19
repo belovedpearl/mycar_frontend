@@ -5,14 +5,36 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { Media } from 'react-bootstrap';
 import { MoreToDo } from '../../components/MoreToDo';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { axiosRes } from '../../api/axiosDefaults';
 
 
 
 const Reviews = (props) => {
-  const {profile_id, profile_image, owner, updated_at, content} = props
+  const {profile_id, profile_image, owner, updated_at, content, id, setPost, setReviews} = props
 
   const currentUser = useCurrentUser()
   const is_owner = currentUser?.username === owner
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/reviews/${id}/`);
+      setPost(prevPost => ({
+         results: [
+          {
+            ...prevPost.results[0],
+            reviews_count: prevPost.results[0].reviews_count -1
+          }
+         ]
+      }))
+      setReviews((prevReviews) => ({
+        ...prevReviews,
+        results: prevReviews.results.filter((review) => review.id !== id),
+      }));
+    } catch (err){
+      console.log(err)
+    }
+  }
+  
   return (
     <div>
       <hr />
@@ -25,7 +47,7 @@ const Reviews = (props) => {
           <span className={styles.Date}>{updated_at}</span>
           <p>{content}</p>
         </Media.Body> 
-        {is_owner && <MoreToDo handleEdit={() => {}} handleDelete={() => {}} /> }
+        {is_owner && <MoreToDo handleEdit={() => {}} handleDelete={ handleDelete } /> }
       </Media>
     </div>
   );

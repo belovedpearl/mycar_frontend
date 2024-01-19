@@ -2,12 +2,13 @@ import React from 'react'
 import styles from '../../styles/Post.module.css'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from '../../components/Avatar';
 import { FaRegThumbsUp } from "react-icons/fa";
 import { FaCommentMedical } from "react-icons/fa6";
 import { FaRegThumbsDown } from "react-icons/fa";
 import { axiosRes } from '../../api/axiosDefaults';
+import { MoreToDo } from '../../components/MoreToDo'
 
 const Post = (props) => {
     const {
@@ -35,6 +36,20 @@ const Post = (props) => {
     
     const currentUser = useCurrentUser()
     const is_owner = currentUser?.username === owner
+    const history = useHistory()
+    // Allows post update
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`);
+      };
+    //   Allows post delete
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/posts/${id}/`);
+            history.goBack()
+        } catch (err){
+            console.log(err)
+        }
+    }
 
     const handleUpvote = async () => {
         try {
@@ -125,7 +140,7 @@ const Post = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
-                        {is_owner && postPage && '...' }
+                        {is_owner && postPage && <MoreToDo handleEdit={ handleEdit } handleDelete={ handleDelete }/>}
                     </div>
                 </Media>
                 

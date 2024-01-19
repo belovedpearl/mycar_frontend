@@ -7,8 +7,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
 import Image from "react-bootstrap/Image";
-
-import { FaUpload } from "react-icons/fa";
+import Alert from "react-bootstrap/Alert";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
@@ -114,6 +113,11 @@ function PostEditForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.make?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       {/* Car Model Input */}
       <Form.Group controlId="model">
@@ -126,6 +130,11 @@ function PostEditForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.model?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       {/* Car Year Input */}
       <Form.Group controlId="year">
@@ -140,6 +149,11 @@ function PostEditForm() {
           onChange={handleChange} 
         />
       </Form.Group>
+      {errors?.year?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       {/* Car Description Input */}
       <Form.Group controlId="description">
@@ -154,7 +168,12 @@ function PostEditForm() {
           value={description}
           onChange={handleChange}
           />
-      </Form.Group> 
+      </Form.Group>
+      {errors?.description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       
        {/* Car Body Type */}
       <Form.Group controlId="body_types">
@@ -179,6 +198,11 @@ function PostEditForm() {
           <option>Others</option>
         </Form.Control>
       </Form.Group>
+      {errors?.body_types?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
@@ -200,8 +224,6 @@ function PostEditForm() {
             className={`${styles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {image ? (
-                <>
                     <figure>
                       <Image className={appStyles.Image} src={image} rounded/>
                     </figure>
@@ -213,16 +235,6 @@ function PostEditForm() {
                         Change the image
                       </Form.Label>
                     </div>
-                </>
-              ): (
-                <Form.Label
-                  className="d-flex flex-column align-items-center"
-                  htmlFor="image-upload"
-                >
-                  <FaUpload size='5em' className="mb-4"/>
-                  <span>Click or tap to add an image</span>
-                </Form.Label>
-                )}
                 <Form.File
                     id="image-upload"
                     accept="image/*"
@@ -230,6 +242,11 @@ function PostEditForm() {
                     ref={imageInput}
                 />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>

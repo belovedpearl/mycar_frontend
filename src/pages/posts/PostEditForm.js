@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -13,12 +13,12 @@ import { FaUpload } from "react-icons/fa";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PostEditForm() {
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({})
 
   const [postData, setPostData] = useState({
     make: "",
@@ -32,6 +32,21 @@ function PostEditForm() {
     postData;
   const imageInput = useRef(null)
   const history = useHistory()
+
+  const { id } = useParams()
+  useEffect( () => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/posts/${id}/`);
+        const { make, model, year, description, body_types, image, is_owner } = data;
+
+        is_owner ? setPostData({ make, model, year, description, body_types, image }) : history.push("/");
+      } catch (err) {
+        console.log((err))
+      }
+    }
+    handleMount()
+  }, [history, id])
 
   const handleChange = (event) => {
     setPostData({
@@ -57,15 +72,7 @@ function PostEditForm() {
     formData.append("description", description);
     formData.append("body_types", body_types);
     formData.append("image", imageInput.current.files[0]);
-    try {
-      const { data } = await axiosReq.post("/posts/", formData);
-      history.push(`/posts/${data.id}`);
-    } catch (err) {
-      console.log(err);
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
-      }
-    }
+    
   }
   const textFields = (
     <div className="text-center">

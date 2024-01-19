@@ -32,15 +32,25 @@ function PostEditForm() {
     postData;
   const imageInput = useRef(null)
   const history = useHistory()
-
   const { id } = useParams()
+
   useEffect( () => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { make, model, year, description, body_types, image, is_owner } = data;
+        const { 
+          make, 
+          model, 
+          year, 
+          description, 
+          body_types, 
+          image, 
+          is_owner 
+        } = data;
 
-        is_owner ? setPostData({ make, model, year, description, body_types, image }) : history.push("/");
+      is_owner ? setPostData(
+            { make, model, year, description, body_types, image }
+          ) : history.push("/");
       } catch (err) {
         console.log((err))
       }
@@ -54,8 +64,9 @@ function PostEditForm() {
       [event.target.name]: event.target.value,
     });
   };
+
   const handleChangeImage = (event) => {
-    if (event.target.files.length) {
+    if (event.target.files.length > 0) {
       URL.revokeObjectURL(image);
       setPostData({
         ...postData,
@@ -63,22 +74,38 @@ function PostEditForm() {
       });
     }
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
+
     formData.append("make", make);
     formData.append("model", model);
     formData.append("year", year);
     formData.append("description", description);
     formData.append("body_types", body_types);
-    formData.append("image", imageInput.current.files[0]);
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
+    }
+    try {
+        await axiosReq.put(`/posts/${id}/`, formData);
+        history.push(`/posts/${id}`);
+    } catch (err){
+        console.log(err.response.data)
+        if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+        }
+    }
     
   }
+
   const textFields = (
     <div className="text-center">
       {/* Car Make Input */}
       <Form.Group controlId="make">
-        <Form.Label className="d-none">Car Make</Form.Label>
+        <Form.Label className="d-none">
+          Car Make
+        </Form.Label>
         <Form.Control 
           type="text" 
           placeholder="Enter car make" 
@@ -88,7 +115,7 @@ function PostEditForm() {
         />
       </Form.Group>
 
-       {/* Car Model Input */}
+      {/* Car Model Input */}
       <Form.Group controlId="model">
         <Form.Label className="d-none">Car Model</Form.Label>
         <Form.Control 
@@ -102,7 +129,9 @@ function PostEditForm() {
 
       {/* Car Year Input */}
       <Form.Group controlId="year">
-        <Form.Label className="d-none">Car Year</Form.Label>
+        <Form.Label className="d-none">
+          Car Year
+        </Form.Label>
         <Form.Control 
           type="number" 
           placeholder="Enter car year" 
@@ -114,7 +143,9 @@ function PostEditForm() {
 
       {/* Car Description Input */}
       <Form.Group controlId="description">
-        <Form.Label className="d-none">Car Description</Form.Label>
+        <Form.Label className="d-none">
+          Car Description
+        </Form.Label>
         <Form.Control 
           as="textarea" 
           rows={3} 
@@ -127,7 +158,9 @@ function PostEditForm() {
       
        {/* Car Body Type */}
       <Form.Group controlId="body_types">
-        <Form.Label className="d-none">Car Bodytype</Form.Label>
+        <Form.Label className="d-none">
+          Car Bodytype
+        </Form.Label>
         <Form.Control
           as="select"
           name="body_types"
@@ -146,9 +179,7 @@ function PostEditForm() {
           <option>Others</option>
         </Form.Control>
       </Form.Group>
-    
-    
-    
+      
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -156,13 +187,13 @@ function PostEditForm() {
         Cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        Create
+        Update
       </Button>
     </div>
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} encType="multipart/form-data">
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container

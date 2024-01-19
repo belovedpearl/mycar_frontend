@@ -60,6 +60,17 @@ function PostPage() {
         ) : reviews.results.length ? (
           "Reviews"
         ) : null}
+        {reviews.results.length?(
+          reviews.results.map(review => (
+            <p key={review.id}>
+              {review.owner}: {review.content}
+            </p>
+          ))
+        ): currentUser ? (
+          <span>No Reviews yet, be the first to add a review</span>
+        ): (
+          <span>No Reviews yet</span>
+        )}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">

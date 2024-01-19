@@ -23,6 +23,7 @@ function ReviewCreateForm(props) {
         content,
         post,
       });
+      console.log("Review creation response:", data);
       setReviews((prevReviews) => ({
         ...prevReviews,
         results: [data, ...prevReviews.results],

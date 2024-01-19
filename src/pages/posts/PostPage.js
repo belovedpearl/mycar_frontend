@@ -11,6 +11,7 @@ import Post from "./Post";
 
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Reviews from "../reviews/Reviews";
 
 function PostPage() {
   // Add your logic here
@@ -51,20 +52,19 @@ function PostPage() {
         <Container className={appStyles.Content}>
         {currentUser ? (
           <ReviewCreateForm
-          profile_id={currentUser.profile_id}
-          profileImage={profile_image}
-          post={id}
-          setPost={setPost}
-          setComments={setReviews}
+            profile_id={currentUser.profile_id}
+            profileImage={profile_image}
+            post={id}
+            setPost={setPost}
+            setReviews={setReviews}
         />
         ) : reviews.results.length ? (
           "Reviews"
         ) : null}
         {reviews.results.length?(
           reviews.results.map(review => (
-            <p key={review.id}>
-              {review.owner}: {review.content}
-            </p>
+            <Reviews key={review.id} {...review} setPost= {setPost} setReviews= {setReviews} />
+            
           ))
         ): currentUser ? (
           <span>No Reviews yet, be the first to add a review</span>

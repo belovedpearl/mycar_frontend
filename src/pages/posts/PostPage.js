@@ -9,10 +9,17 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 
+import ReviewCreateForm from "../reviews/ReviewCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 function PostPage() {
   // Add your logic here
   const {id} = useParams()
   const [post, setPost] = useState({results: []})
+
+  const currentUser = useCurrentUser();
+  const profile_image = currentUser?.profile_image;
+  const [reviews, setReviews] = useState({ results: [] });
   
   useEffect( () => {
     const handleMount = async () => {
@@ -40,7 +47,17 @@ function PostPage() {
         {/* Post Component here */}
         <Post {...post.results[0]} setPosts= {setPost} postPage/>
         <Container className={appStyles.Content}>
-          Comments
+        {currentUser ? (
+          <ReviewCreateForm
+          profile_id={currentUser.profile_id}
+          profileImage={profile_image}
+          post={id}
+          setPost={setPost}
+          setComments={setReviews}
+        />
+        ) : reviews.results.length ? (
+          "Reviews"
+        ) : null}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">

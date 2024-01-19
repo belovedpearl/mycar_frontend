@@ -65,7 +65,7 @@ function PostEditForm() {
   };
 
   const handleChangeImage = (event) => {
-    if (event.target.files.length > 0) {
+    if (event.target.files.length) {
       URL.revokeObjectURL(image);
       setPostData({
         ...postData,

@@ -42,8 +42,6 @@ function ProfilePage() {
                     ...prevState,
                     pageProfile: {results: [pageProfile]}
                 }))
-                console.log(pageProfile)
-                
                 setHasLoaded(true);
             }catch(err){
                 console.log(err)
@@ -52,48 +50,50 @@ function ProfilePage() {
         fetchData(); 
     }, [id, setProfileData])
 
-  const mainProfile = (
-    <>
-      <Row noGutters className="px-3 text-center">
-        <Col lg={3} className="text-lg-left">
-            
-          <Image 
-            className={styles.ProfileImage}
-            roundedCircle
-            src={profile?.image}
-          />
-          
-        </Col>
-        <Col lg={6}>
-            <h3 className="m-2">{profile?.owner}</h3>
-             <p className="m-2">
-                {profile?.job_title}, {profile?.current_employer}
-             </p>
-             <p className="m-2">
-            <FaLocationDot />
-            {profile?.location}
-            </p>
-            <Row className="justify-content-center no-gutters">
-                <Col xs={4} className="my-2">
-                    <div>{profile?.posts_count}</div>
-                    <div>posts</div>
+    const mainProfile = (
+        <>
+            <Row noGutters className="px-3 text-center">
+                <Col lg={3} className="text-lg-left">          
+                    <Image 
+                        className={styles.ProfileImage}
+                        roundedCircle
+                        src={profile?.image}
+                    />                 
                 </Col>
-                <Col xs={4} className="my-2">
-                    <div>{profile?.followers_count}</div>
-                    <div >followers</div>
+                <Col lg={6}>
+                    <h3 className="m-2">
+                        {profile?.owner}
+                    </h3>
+                    <p className="m-2">
+                        {profile?.job_title}, {profile?.current_employer}
+                    </p>
+                    <p className="m-2">
+                        <FaLocationDot />
+                        {profile?.location}
+                    </p>
+                    <Row className="justify-content-center no-gutters">
+                        <Col xs={4} className="my-2">
+                            <div>{profile?.posts_count}</div>
+                            <div>Posts</div>
+                        </Col>
+                        <Col xs={4} className="my-2">
+                            <div>{profile?.followers_count}</div>
+                            <div >Followers</div>
+                        </Col>
+                        <Col xs={4} className="my-2">
+                            <div>{profile?.following_count}</div>
+                            <div className="ml-2">Following</div>
+                        </Col>
+                    </Row>
                 </Col>
-                <Col xs={4} className="my-2">
-                    <div>{profile?.following_count}</div>
-                    <div className="ml-2">following</div>
+                <Col lg={3} className="text-lg-right">
+                    <p>
+                        Follow button
+                    </p>
                 </Col>
-          </Row>
-        </Col>
-        <Col lg={3} className="text-lg-right">
-        <p>Follow button</p>
-        </Col>
-        {profile?.about && <Col className="p-3">{profile.about}</Col>}
-      </Row>
-    </>
+                {profile?.about && <Col className="p-3">{profile.about}</Col>}
+            </Row>
+        </>
   );
 
   const mainProfilePosts = (

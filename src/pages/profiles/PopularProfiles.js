@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import appstyles from '../../App.module.css'
+import appStyles from '../../App.module.css'
 import { Container } from 'react-bootstrap'
 import { axiosReq } from '../../api/axiosDefaults'
 import { useCurrentUser } from '../../contexts/CurrentUserContext'
 import Asset from '../../components/Assets'
 
-const PopularProfiles = () => {
+const PopularProfiles = ({mobile}) => {
     const [profileData, setProfileData] = useState({
           pageProfile: {results: []},
           popularProfiles: {results: []}
@@ -29,21 +29,33 @@ const PopularProfiles = () => {
           }
           handleMount()
         }, [currentUser])
-  return (
-    <Container className={appstyles.Content}>
-        {popularProfiles.results.length ? (
-        <>
-
-        <p>Most Followed Profiles</p>
-        {popularProfiles.results.map(profile => (
-            <p key={profile.id}>{profile.owner}</p>
-        ))}
-        </>
-        ):(
-            <Asset spinner/>
-        )}
-    </Container>
-  )
+    return (
+        <Container 
+            className={`${appStyles.Content} ${
+                mobile && "d-lg-none text-center mb-3"
+            }`}
+        >
+            {popularProfiles.results.length ? (
+                <>
+                    <p>Most followed profiles.</p>
+                    {mobile ? (
+                        <div className="d-flex justify-content-around">
+                            {popularProfiles.results.slice(0, 4).map((profile) => (
+                            <p key={profile.id}>{profile.owner}</p>
+                            ))}
+                        </div>
+                        ) : (
+                        popularProfiles.results.map((profile) => (
+                            <p key={profile.id}>{profile.owner}</p>
+                            
+                        ))
+                    )}
+                </>
+            ):(
+                <Asset spinner/>
+            )}
+        </Container>
+    )
 }
 
 export default PopularProfiles

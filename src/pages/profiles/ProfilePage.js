@@ -26,6 +26,7 @@ function ProfilePage() {
     const { setProfileData } = useSetProfileData()
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
+    const is_owner = currentUser?.username === profile?.owner;
     
 
   
@@ -87,9 +88,23 @@ function ProfilePage() {
                     </Row>
                 </Col>
                 <Col lg={3} className="text-lg-right">
-                    <p>
-                        Follow button
-                    </p>
+                {currentUser &&
+                    !is_owner &&
+                    (profile?.following_id ? (
+                    <Button
+                        className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                        onClick={() => {}}
+                    >
+                        Unfollow
+                    </Button>
+                    ) : (
+                    <Button
+                        className={`${btnStyles.Button} ${btnStyles.Black}`}
+                        onClick={() => {}}
+                    >
+                        Follow
+                    </Button>
+                    ))}
                 </Col>
                 {profile?.about && <Col className="p-3">{profile.about}</Col>}
             </Row>

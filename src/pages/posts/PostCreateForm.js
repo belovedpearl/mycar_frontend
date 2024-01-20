@@ -15,6 +15,7 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import { Alert } from "react-bootstrap";
 
 function PostCreateForm() {
 
@@ -80,6 +81,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.make?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+              {message}
+          </Alert>
+      ))}
 
        {/* Car Model Input */}
       <Form.Group controlId="model">
@@ -92,6 +98,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.model?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+              {message}
+          </Alert>
+      ))}
 
       {/* Car Year Input */}
       <Form.Group controlId="year">
@@ -104,6 +115,11 @@ function PostCreateForm() {
           onChange={handleChange} 
         />
       </Form.Group>
+      {errors.year?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+              {message}
+          </Alert>
+      ))}
 
       {/* Car Description Input */}
       <Form.Group controlId="description">
@@ -116,7 +132,12 @@ function PostCreateForm() {
           value={description}
           onChange={handleChange}
           />
-      </Form.Group> 
+      </Form.Group>
+      {errors.description?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+              {message}
+          </Alert>
+      ))} 
       
        {/* Car Body Type */}
       <Form.Group controlId="body_types">
@@ -139,8 +160,12 @@ function PostCreateForm() {
           <option>Others</option>
         </Form.Control>
       </Form.Group>
-    
-    
+      {errors.body_types?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+              {message}
+          </Alert>
+      ))}
+        
     
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}

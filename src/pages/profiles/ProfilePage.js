@@ -14,8 +14,15 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 import PopularProfiles from "./PopularProfiles";
-import { Button, Image } from "react-bootstrap";
+import { Button, Image, Tabs } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
+import NoResults from '../../assets/no-results.png'
+import { fetchMoreData } from "../../utils/utils";
+import Post from '../posts/Post'
+import InfiniteScroll from "react-infinite-scroll-component";
+import Tab from "react-bootstrap/Tab";
+
+
 
 
 
@@ -27,15 +34,15 @@ function ProfilePage() {
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.owner;
-    
-
-  
+    const [profilePosts, setProfilePosts] = useState({ results: [] });
+     
     useEffect(() => {
         const fetchData = async() => {
             try{
-                const [{data: pageProfile}] = await Promise.all(
+                const [{data: pageProfile}, { data: profilePosts }] = await Promise.all(
                     [
-                        axiosReq.get(`/profiles/${id}/`)
+                        axiosReq.get(`/profiles/${id}/`),
+                        axiosReq.get(`/posts/?owner__profile=${id}`),
                         
                     ]
                 )
@@ -43,6 +50,7 @@ function ProfilePage() {
                     ...prevState,
                     pageProfile: {results: [pageProfile]}
                 }))
+                setProfilePosts(profilePosts);
                 setHasLoaded(true);
             }catch(err){
                 console.log(err)
@@ -67,11 +75,11 @@ function ProfilePage() {
                     </h3>
                     <p className="m-2">
                         {profile?.job_title}, {profile?.current_employer}
-                    </p>
-                    <p className="m-2">
+                    </p>                    
+                    {profile?.location && <p className="m-2">
                         <FaLocationDot />
-                        {profile?.location}
-                    </p>
+                        {profile.location}
+                    </p>}
                     <Row className="justify-content-center no-gutters">
                         <Col xs={4} className="my-2">
                             <div>{profile?.posts_count}</div>
@@ -82,28 +90,32 @@ function ProfilePage() {
                             <div >Followers</div>
                         </Col>
                         <Col xs={4} className="my-2">
-                            <div>{profile?.following_count}</div>
-                            <div className="ml-2">Following</div>
+                            <div>
+                                {profile?.following_count}
+                            </div>
+                            <div className="ml-2">
+                                Following
+                            </div>
                         </Col>
                     </Row>
                 </Col>
                 <Col lg={3} className="text-lg-right">
-                {currentUser &&
-                    !is_owner &&
-                    (profile?.following_id ? (
-                    <Button
-                        className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                        onClick={() => {}}
-                    >
-                        Unfollow
-                    </Button>
-                    ) : (
-                    <Button
-                        className={`${btnStyles.Button} ${btnStyles.Black}`}
-                        onClick={() => {}}
-                    >
-                        Follow
-                    </Button>
+                    {currentUser &&
+                        !is_owner &&
+                        (profile?.following_id ? (
+                        <Button
+                            className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                            onClick={() => {}}
+                        >
+                            Unfollow
+                        </Button>
+                        ) : (
+                        <Button
+                            className={`${btnStyles.Button} ${btnStyles.Black}`}
+                            onClick={() => {}}
+                        >
+                            Follow
+                        </Button>
                     ))}
                 </Col>
                 {profile?.about && <Col className="p-3">{profile.about}</Col>}
@@ -112,12 +124,50 @@ function ProfilePage() {
   );
 
   const mainProfilePosts = (
-    <>
-      <hr />
-      <p className="text-center">Profile owner's posts</p>
-      <hr />
-    </>
+        <>
+            {profilePosts.results.length ? (
+                <InfiniteScroll
+                    children={profilePosts.results.map((post) => (
+                        <Post key={post.id} {...post} setPosts={setProfilePosts} />
+                    ))}
+                    dataLength={profilePosts.results.length}
+                    loader={ <Asset spinner />}
+                    hasMore={ !!profilePosts.next }
+                    next={() => fetchMoreData(profilePosts, setProfilePosts)}
+                />
+                ) : (
+                    <Asset
+                        src={NoResults}
+                        message={`No results found ${
+                            profile?.owner
+                        } hasn't created any posts yet.`}
+                    />
+            )}
+        </>
   );
+    const upvotes = (
+    'Nothing here now'
+    )
+    const downvotes = (
+        'Nothing here now'
+        )
+
+  const profileSections = (
+        <>
+            <Tabs defaultActiveKey="posts" id="profile-tab">
+                <Tab eventKey="posts" title={`${profile?.owner}'s Posts`}>
+                    {mainProfilePosts}
+                </Tab>
+                <Tab eventKey="upvotes" title={`${profile?.owner}'s Upvotes`}>
+                    { upvotes}
+                </Tab>
+                <Tab eventKey="downvotes" title={`${profile?.owner}'s Downvotes`}>
+                    { downvotes }
+                </Tab>
+            </Tabs>
+        </>
+    );
+
   return (
     <Row>
         <Col lg={2} className="d-none d-lg-block p-0 p-lg-2">
@@ -129,7 +179,7 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
-              {mainProfilePosts}
+              {profileSections}
             </>
           ) : (
             <Asset spinner />

@@ -16,6 +16,7 @@ import {
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import PopularProfiles from "./PopularProfiles";
 
 const UsernameForm = () => {
     const [username, setUsername] = useState("");

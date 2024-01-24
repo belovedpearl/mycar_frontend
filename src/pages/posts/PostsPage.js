@@ -48,7 +48,7 @@ function PostsPage({message, filter= ''}) {
   return (
     <Row className="h-100">
         <Col lg={2} className="d-none d-lg-block p-0 p-lg-2">
-          <p>popular cars</p>
+          <p>Popular profiles for desktop</p>
         </Col>
       <Col className="py-2 p-0 p-lg-2" lg={6}>
         <PopularProfiles mobile/>

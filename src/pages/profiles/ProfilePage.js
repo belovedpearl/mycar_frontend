@@ -22,11 +22,12 @@ import Post from '../posts/Post'
 import InfiniteScroll from "react-infinite-scroll-component";
 import Tab from "react-bootstrap/Tab";
 
+
 function ProfilePage() { 
     const [hasLoaded, setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
     const {id} = useParams()
-    const { setProfileData, handleFollow } = useSetProfileData()
+    const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData()
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.owner;
@@ -120,7 +121,7 @@ function ProfilePage() {
                         (profile?.following_id ? (
                         <Button
                             className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                            onClick={() => {}}
+                            onClick={() => handleUnfollow(profile)}
                         >
                             Unfollow
                         </Button>
@@ -222,6 +223,7 @@ function ProfilePage() {
     );
 
   return (
+
     <Row>
         <Col lg={2} className="d-none d-lg-block p-0 p-lg-2">
             <p>popular profiles for desktop</p>

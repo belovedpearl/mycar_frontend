@@ -9,8 +9,10 @@ import CoverImage from '../../assets/img.jpeg';
 
 import { Button, Form, Alert, Image, Col, Row, Container } from "react-bootstrap";
 import axios from "axios";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
+  useRedirect("signedIn")
   const [signUpData, setSignUpData] = useState (
     {
       username: '',

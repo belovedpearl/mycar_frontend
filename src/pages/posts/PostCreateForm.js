@@ -16,9 +16,10 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Alert } from "react-bootstrap";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
-
+  useRedirect("signedOut")
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({

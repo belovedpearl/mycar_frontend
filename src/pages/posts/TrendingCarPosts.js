@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import { axiosReq } from '../../api/axiosDefaults';
 import { Link } from 'react-router-dom';
 import { FaCar } from 'react-icons/fa';
+import Asset from '../../components/Assets';
 
 const TrendingCarPosts = () => {
     const [trendingCarPosts, setTrendingCarPosts] = useState([]);
@@ -19,29 +20,36 @@ const TrendingCarPosts = () => {
             }
         }
         fetchTrendingCars();
-    }, []);
+    }, [trendingCarPosts]);
 
     return (
         <Container className={appStyles.Content}>
-            <p>Trending car posts</p>
-            <ul>
-               
-                {trendingCarPosts.map((post, index) => (
-                    <li key={index} className='mb-3'>
-                        <Link to={`/posts/${post.id}`}>
-                            <p>
-                                <FaCar className="mr-2" />
-                                {`${post.make} ${post.model}`}
-                            </p>
-                            <img
-                                src={post.image}
-                                alt={`Image of ${post.make} ${post.model}`}
-                                className="img-fluid rounded mt-1"
-                            />
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+            {trendingCarPosts.length?(
+                <>
+                    <p>
+                        Trending car posts
+                    </p>
+                    <ul>                       
+                        {trendingCarPosts.map((post, index) => (
+                            <li key={index} className='mb-3'>
+                                <Link to={`/posts/${post.id}`}>
+                                    <p>
+                                        <FaCar className="mr-2" />
+                                        {`${post.make} ${post.model}`}
+                                    </p>
+                                    <img
+                                        src={post.image}
+                                        alt=''
+                                        className="img-fluid rounded mt-1"
+                                    />
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+               </>
+                ): (
+                    <Asset spinner />
+            )}
         </Container>
     );
 }

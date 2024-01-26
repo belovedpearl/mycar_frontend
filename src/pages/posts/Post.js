@@ -144,7 +144,7 @@ const Post = (props) => {
                 
             </Card.Body>
              <Link to={`/posts/${id}`}>
-                <Card.Img src={image} alt={`${make} ${model} picture`} />
+                <Card.Img src={image} className={styles.Display} alt={`${make} ${model} picture`} />
             </Link>
             <Card.Body>           
             {body_types && <Card.Title className="text-center font-weight-bold">{body_types}</Card.Title>}

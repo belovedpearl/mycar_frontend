@@ -11,6 +11,10 @@
     margin: 0 0;
   }
   
+  .Display{
+    width: 95%;
+    height: 350px;
+  }
   .Heart {
     color: #f85032;
   }

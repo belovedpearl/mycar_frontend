@@ -22,6 +22,7 @@ import Post from '../posts/Post'
 import InfiniteScroll from "react-infinite-scroll-component";
 import Tab from "react-bootstrap/Tab";
 import { ProfileEditDropdown } from "../../components/MoreToDo";
+import TrendingCarPosts from "../posts/TrendingCarPosts";
 
 
 function ProfilePage() { 
@@ -226,9 +227,9 @@ function ProfilePage() {
 
   return (
     <Row>
-        <Col lg={2} className="d-none d-lg-block p-0 p-lg-2">
-            <p>popular profiles for desktop</p>
-        </Col>
+        <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
+              <TrendingCarPosts />
+            </Col>
         <Col className="py-2 p-0 p-lg-2" lg={6}>
             <PopularProfiles mobile />
             <Container className={ appStyles.Content }>
@@ -243,7 +244,7 @@ function ProfilePage() {
                 }
             </Container>
         </Col>
-        <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+        <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
             <PopularProfiles />
         </Col>
     </Row>

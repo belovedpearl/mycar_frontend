@@ -16,6 +16,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Assets";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import TrendingCarPosts from "./TrendingCarPosts";
 
 function PostPage() {
   const {id} = useParams()
@@ -44,9 +45,9 @@ function PostPage() {
 
     return (
         <Row className="h-100">
-          <Col lg={2} className="d-none d-lg-block p-0 p-lg-2">
-            <p>popular profiles for desktop</p>
-          </Col>
+            <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
+              <TrendingCarPosts />
+            </Col>
           <Col className="py-2 p-0 p-lg-2" lg={6}>
             <PopularProfiles  mobile />
             {/* Post Component here */}
@@ -80,8 +81,8 @@ function PostPage() {
             )}
             </Container>
           </Col>
-          <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-            <PopularProfiles />
+          <Col md={3} className="d-none d-lg-block p-0 p-lg-2">
+              <PopularProfiles />
           </Col>
         </Row>
     );

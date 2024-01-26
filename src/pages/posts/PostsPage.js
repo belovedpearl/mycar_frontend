@@ -77,7 +77,7 @@ function PostsPage({message, filter= ''}) {
               next={() => fetchMoreData(posts, setPosts)}
             />
           ) : (
-            <Container className={appStyles.NoResults}>
+            <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
             </Container>
           )}

@@ -4,20 +4,21 @@
 
 .App {
   font-family: "Roboto", sans-serif;
-  background-color: #ffffff;
-  min-height: 100vh;
+  background-color: #f5f5f5;
+  min-height: 100vh; 
 }
 .AppHead {
   padding-top: 70px;
 }
 
 a {
-  color: #FFFFFF;
+  color: #001F3F;
   transition: color ease-in-out 0.3s;
 }
 
 a:hover {
   text-decoration: none;
+  
 }
 
 a:hover i {
@@ -27,7 +28,8 @@ a:hover i {
 
 
 i {
-  color: #ffffff;
+  /* color: #ffffff; */
+  color: #001F3F;
   font-size: 1.6rem;
   padding: 3px;
   vertical-align: middle;
@@ -39,17 +41,30 @@ i:hover {
   color:#848484;
 }
 
-.Content {
+/* .Content {
   background-color: #848484;
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #001F3F;
   
-}
-.NoResults {
+} */
+.Content {
   padding: 12px;
   font-weight: bold;
+  background-color: #FFFFFF;
+  
 }
+/* .NoResults {
+  padding: 12px;
+  font-weight: bold;
+} */
+.NoResults {
+  background-color: #848484;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #001F3F;
+}
+
 .CoverImage {
   object-fit: cover;
   height: 100%;

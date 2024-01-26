@@ -109,7 +109,7 @@ const SignInForm = () => {
                 </Form>
 
                 </Container>
-                <Container className={`mt-3 ${appStyles.Content}`}>
+                <Container className={`mt-3 ${appStyles.NoResults}`}>
                 <p className={styles.LinkText}>
                     <span className="mr-2">
                         You don't have an account?

@@ -47,13 +47,13 @@
   
   .Black,
   .BlackOutline:hover {
-    background-color: #242a3d;
-    color: aliceblue;
+    background-color: #001F3F;
+    color: rgb(195, 220, 241);
   }
   
   .Black:hover,
   .BlackOutline {
-    background-color: aliceblue;
+    background-color: rgb(195, 220, 241);
     color: #242a3d;
   }
   

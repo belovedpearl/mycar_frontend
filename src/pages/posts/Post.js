@@ -137,7 +137,7 @@ const Post = (props) => {
                         {owner}
                     </Link>
                     <div className="d-flex align-items-center">
-                        <span>{updated_at}</span>
+                        <span className='mr-3'>{updated_at}</span>
                         {is_owner && postPage && <MoreToDo handleEdit={ handleEdit } handleDelete={ handleDelete }/>}
                     </div>
                 </Media>

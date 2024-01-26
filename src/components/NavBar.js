@@ -13,6 +13,7 @@ import { MdAddCircleOutline } from "react-icons/md";
 import { FaSignOutAlt } from "react-icons/fa";
 import { BiSolidUserPlus } from "react-icons/bi";
 import { MdOutlineDynamicFeed } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
 
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
 import useClickOutside from '../hooks/useClickOutside'
@@ -48,8 +49,10 @@ const NavBar = () => {
                             className={`${styles.NavLink} mr-2`} 
                             activeClassName = {styles.Active}
                         >
-                            <BiSolidUserPlus size={30} className="mr-1" />
-                            Sign up
+                            <span className={styles.LinkContainer}>
+                                <BiSolidUserPlus size={30} className="mr-1" />
+                                Sign up
+                            </span>
                         </NavLink>
                     </>
     const signedInIcons = 
@@ -58,35 +61,44 @@ const NavBar = () => {
                                 to='/feed'  
                                 className={`ml-3 ${styles.NavLink}`}
                             >
-                                <MdOutlineDynamicFeed size={30} />
-                                Feed
+                                <span className={styles.LinkContainer}>
+                                    <MdOutlineDynamicFeed size={30} />
+                                    Feed
+                                </span>
                             </NavLink>
                            <NavLink 
                                 to='/'  
                                 className={`ml-3 ${styles.NavLink}`}
                                 onClick = { handleSignOut }
                             >
-                                <FaSignOutAlt size={30}/>
-                                Sign out
+                                <span className={styles.LinkContainer}>
+                                    <FaSignOutAlt size={30}/>
+                                    Sign out
+                                </span>
                             </NavLink>
                             <NavLink 
                                 to={`/profiles/${currentUser?.profile_id}`}
                                 className={styles.NavLink}
                                 dataTest= 'user_profile' 
                             >
-                                <Avatar 
-                                    src= {currentUser?.profile_image}  
-                                    height={30}
-                                    text = {currentUser?.username}
-                                />
+                                <span className={styles.LinkContainer}>
+                                    <Avatar 
+                                        src= {currentUser?.profile_image}  
+                                        height={30}
+                                        text = {currentUser?.username}
+                                    />
+                                </span>
                             </NavLink>                        
                         </>
     const addPost = <NavLink 
                         to='/posts/create' 
                         className={styles.NavLink} 
-                        activeClassName={styles.Active}>
-                        <MdAddCircleOutline size={30}/>
-                        Add Post
+                        activeClassName={styles.Active}
+                    >
+                        <span className={styles.LinkContainer}>
+                            <MdAddCircleOutline size={30}/>
+                            Add Post
+                        </span>
                     </NavLink> 
   return (
         <div>
@@ -114,8 +126,10 @@ const NavBar = () => {
                                 className={`${styles.NavLink} mr-2`} 
                                 activeClassName = {styles.Active} 
                             >
-                                <i className='fas fa-home mr-1'></i>
-                                Home
+                                <span className={styles.LinkContainer}>
+                                    <FaHome className='mr-1' size={30}/>
+                                    Home
+                                </span>
                             </NavLink>
                             {currentUser && addPost}
                             {currentUser ? signedInIcons : signedOutIcons}               

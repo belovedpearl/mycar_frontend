@@ -3,9 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 const useClickOutside = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null)
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
-      if (ref.current && !ref.current.contains(event.target)){
+      if (ref.current && !ref.current.contains(event.target )){
         setExpanded(false)
       }
     }
@@ -13,7 +14,7 @@ const useClickOutside = () => {
     return () => {
       document.removeEventListener('mouseup', handleOutsideClick)
     }
-  }, [ref])
+  }, [ref, setExpanded])
   return (
     {expanded, setExpanded, ref}
   )

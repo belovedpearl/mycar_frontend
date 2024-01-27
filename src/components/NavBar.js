@@ -18,11 +18,12 @@ import { FaHome } from "react-icons/fa";
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
 import useClickOutside from '../hooks/useClickOutside'
 import axios from 'axios'
+import TrendingCarPosts from "../pages/posts/TrendingCarPosts"
 
 const NavBar = () => {
     const currentUser = useCurrentUser()
     const setCurrentUser = useSetCurrentUser()
-
+    
     const {expanded, setExpanded, ref} = useClickOutside()
 
     const handleSignOut = async () => {
@@ -109,15 +110,27 @@ const NavBar = () => {
                 fixed='top'
             >
                 <Container>
-                    <NavLink to = "/">
-                        <Navbar.Brand>
-                            <img src={logo} alt='Brand logo' height='40' />
-                        </Navbar.Brand>
-                    </NavLink>
+                    <Nav className="text-left">
+                        <div 
+                            className="d-flex align-items-center justify-content-between w-100"
+                        >
+                            <div>
+                                <NavLink to="/">
+                                    <Navbar.Brand>
+                                        <img src={logo} alt='Brand logo' height='40' />
+                                    </Navbar.Brand>
+                                </NavLink>
+                            </div>
+                            <div>
+                                <TrendingCarPosts mobile />
+                            </div>
+                        </div>
+                    </Nav>
                     <Navbar.Toggle 
                         ref={ref} 
                         onClick={() => setExpanded(!expanded)} 
                         aria-controls="basic-navbar-nav" 
+                        className={styles.ToggleButton}
                     />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto text-left">

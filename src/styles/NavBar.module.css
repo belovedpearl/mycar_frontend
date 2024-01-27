@@ -13,3 +13,6 @@
   color: #848484;
   transition: color ease-in-out 0.3s;
 }
+.ToggleButton{
+  color: #ffffff !important;
+}

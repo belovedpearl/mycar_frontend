@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react'
 const useClickOutside = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null)
-
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (ref.current && !ref.current.contains(event.target )){

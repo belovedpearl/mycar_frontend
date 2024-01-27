@@ -14,6 +14,7 @@ import { FaSignOutAlt } from "react-icons/fa";
 import { BiSolidUserPlus } from "react-icons/bi";
 import { MdOutlineDynamicFeed } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
+import { PiSignInBold } from "react-icons/pi";
 
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
 import useClickOutside from '../hooks/useClickOutside'
@@ -42,8 +43,10 @@ const NavBar = () => {
                             className={`${styles.NavLink} mr-2`} 
                             activeClassName = {styles.Active}
                         >
-                            <i className="fas fa-right-to-bracket mr-1"></i>
+                            <span className={styles.LinkContainer}>
+                                <PiSignInBold size={30} className="mr-1" />
                             Sign in
+                            </span>
                         </NavLink>           
                         <NavLink 
                             to = "/signup" 

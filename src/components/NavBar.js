@@ -8,6 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import styles from '../styles/NavBar.module.css'
 import logo from '../assets/logo.png'
 import Avatar from './Avatar'
+import { removeTokenTimestamp } from '../utils/utils';
 // React icons
 import { MdAddCircleOutline } from "react-icons/md";
 import { FaSignOutAlt } from "react-icons/fa";
@@ -31,6 +32,7 @@ const NavBar = () => {
         try{
             await axios.post("dj-rest-auth/logout");
             setCurrentUser(null)
+            removeTokenTimestamp()
         }catch (err){
             console.log(err)
         }

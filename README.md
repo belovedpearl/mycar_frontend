@@ -116,6 +116,58 @@ All wireframes are made with Balsamiq.
 ---
 # User's Story
 
+## Navigation and Authentication
+
+* As a User, I can view a uniform navbar on every page so that I can understand and navigate easily between the app's pages.
+
+* As a User, I can navigate through pages so that I can view content seemlessly without page refresh.
+
+* As a User, I can register to create a new account so that I can access all features for signed up users.
+
+* As a User, I can sign in to the app so that I can the full features of the app.
+
+* As a User, I can see that I am signed in so that I can know when to sign in
+
+* As a User, I can maintain my signed in status until I choose to logout so that I can fully enjoy my time on the app
+
+* As a Signed out user, I can the sign in/out options so that I can decide what to do from there.
+
+* As a User, I can see the user's display picture so that I can identify the users of the application.
+
+## Posts
+
+* As a User, I can add post to the platform so that I can share my posts for other users to share their views and opinions
+
+* As a User, I can view the details of a single post so that I can access more information about the post.
+
+* As a User, I can view posts in descending order of creation so that I can be up to date with new posts from other users.
+
+* As a User, I can continue to scroll through posts on the application so that I can continue to see contents without having to use the next button
+
+* As a Logged in user, I can view posts from users I follow so that I can know about the latest content from the people I follow.
+* As a User, I can see time the post was created so that I can know how long it was the post has been made.
+
+## Post Page
+
+* As a User, I can view the details of a single post so that I can access more information about the post.
+
+* As a Logged in user, I can update my posts so that I can make corrections after creating it.
+
+* As a logged in user, I can delete my posts so that I can remove my contents from the application.
+
+* As a logged in user, I can add reviews so that I can contribute my knowledge about the specific car to the platform.
+
+* As a user, I can see the display picture and name of the review author so that I can know who made the contribution.
+
+* As a user, I can see when the review was posted so that I can know how old the review is.
+
+* As a User, I can delete reviews I created so that I can remove my reviews from the post and the application.
+
+* As a logged in user, I can update my review on my post so that I can correct wrong information on the review. 
+
 
 # Bugs
 Access to XMLHttpRequest at 'https://mycardrfapi-d64556077ed4.herokuapp.com/dj-rest-auth/registration/' from origin 'https://3000-belovedpear-mycarfronte-xe7q5mhm7wg.ws-eu107.gitpod.io' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+sigin link not displaying - style on the font icon made it not visible
+

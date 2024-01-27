@@ -22,6 +22,7 @@ import useClickOutside from '../hooks/useClickOutside'
 import axios from 'axios'
 import TrendingCarPosts from "../pages/posts/TrendingCarPosts"
 
+
 const NavBar = () => {
     const currentUser = useCurrentUser()
     const setCurrentUser = useSetCurrentUser()
@@ -45,55 +46,55 @@ const NavBar = () => {
                             className={`${styles.NavLink} mr-2`} 
                             activeClassName = {styles.Active}
                         >
-                            <span className={styles.LinkContainer}>
+                            <div className={styles.LinkContainer}>
                                 <PiSignInBold size={30} className="mr-1" />
                             Sign in
-                            </span>
+                            </div>
                         </NavLink>           
                         <NavLink 
                             to = "/signup" 
                             className={`${styles.NavLink} mr-2`} 
                             activeClassName = {styles.Active}
                         >
-                            <span className={styles.LinkContainer}>
+                            <div className={styles.LinkContainer}>
                                 <BiSolidUserPlus size={30} className="mr-1" />
                                 Sign up
-                            </span>
+                            </div>
                         </NavLink>
                     </>
     const signedInIcons = 
                         <>
                             <NavLink 
                                 to='/feed'  
-                                className={`ml-3 ${styles.NavLink}`}
+                                className={`ml-3 ${styles.NavLink} ${styles.NavLinkText}`}
                             >
-                                <span className={styles.LinkContainer}>
+                                <div className={styles.LinkContainer}>
                                     <MdOutlineDynamicFeed size={30} />
                                     Feed
-                                </span>
+                                </div>
                             </NavLink>
                            <NavLink 
                                 to='/'  
-                                className={`ml-3 ${styles.NavLink}`}
+                                className={`ml-3 ${styles.NavLink} ${styles.NavLinkText}`}
                                 onClick = { handleSignOut }
                             >
-                                <span className={styles.LinkContainer}>
+                                <div className={`ml-3 ${styles.LinkContainer} ${styles.AddandSign}`}>
                                     <FaSignOutAlt size={30}/>
                                     Sign out
-                                </span>
+                                </div>
                             </NavLink>
                             <NavLink 
                                 to={`/profiles/${currentUser?.profile_id}`}
-                                className={styles.NavLink}
+                                className={`ml-3 ${styles.NavLink} ${styles.NavLinkText}`}
                                 dataTest= 'user_profile' 
                             >
-                                <span className={styles.LinkContainer}>
+                                <div className={styles.LinkContainer}>
                                     <Avatar 
                                         src= {currentUser?.profile_image}  
                                         height={30}
                                         text = {currentUser?.username}
                                     />
-                                </span>
+                                </div>
                             </NavLink>                        
                         </>
     const addPost = <NavLink 
@@ -101,10 +102,10 @@ const NavBar = () => {
                         className={styles.NavLink} 
                         activeClassName={styles.Active}
                     >
-                        <span className={styles.LinkContainer}>
+                        <div  className={`ml-3 ${styles.LinkContainer} ${styles.AddandSign}`} >                    
                             <MdAddCircleOutline size={30}/>
                             Add Post
-                        </span>
+                        </div>
                     </NavLink> 
   return (
         <div>
@@ -141,13 +142,13 @@ const NavBar = () => {
                         <Nav className="ml-auto text-left">
                             <NavLink 
                                 exact to = "/" 
-                                className={`${styles.NavLink} mr-2`} 
+                                className={`${styles.NavLink} mr-2 ${styles.HomeIcon}`} 
                                 activeClassName = {styles.Active} 
                             >
-                                <span className={styles.LinkContainer}>
+                                <div className={styles.LinkContainer}>
                                     <FaHome className='mr-1' size={30}/>
                                     Home
-                                </span>
+                                </div>
                             </NavLink>
                             {currentUser && addPost}
                             {currentUser ? signedInIcons : signedOutIcons}               

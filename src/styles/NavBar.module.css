@@ -16,3 +16,16 @@
 .ToggleButton{
   color: #ffffff !important;
 }
+
+@media (max-width: 768px) {
+   .NavLinkText{
+    font-size: 15px;
+   }
+   .AddandSign{
+    display: flex;
+    flex-direction: column;
+   }
+   .HomeIcon{
+    margin-left: 15px;
+   }
+}

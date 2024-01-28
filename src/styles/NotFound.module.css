@@ -1,0 +1,12 @@
+.NotFoundDisplay{
+    margin-top: 20vh;
+}
+.errorText {
+    color: #FF4136;
+    font-weight: bold;
+}
+.HomeBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -21,33 +21,40 @@ const TrendingCarPosts = ({mobile}) => {
             }
         }
         fetchTrendingCars();
-    }, [trendingCarPosts]);
+    }, []);
 
     return (
-        <Container className={`${appStyles.Content} ${mobile && 'd-lg-none mr-2'}`}>
+        <Container 
+            className={`${appStyles.Content} ${mobile && 'd-lg-none mr-2'}`}
+        >
             {trendingCarPosts.length?(
+                <>
+                    {mobile ? (
+                        <NavDropdown title="Trending" id="basic-nav-dropdown"
+                        className={styles.DropDown}
+                        >
+                        {trendingCarPosts.map((post, index) => (
+                            <NavDropdown.Item key={index} as={Link} to={`/posts/${post.id}`}>
+                                <strong>
+                                    {`${post.make} ${post.model}`}
+                                </strong>
+                            </NavDropdown.Item>
+                        ))}
+                    </NavDropdown>
+                    ): (
                     <>
-                        {mobile ? (
-                            <NavDropdown title="Trending" id="basic-nav-dropdown"
-                            className={styles.DropDown}
-                            >
-                            {trendingCarPosts.map((post, index) => (
-                                <NavDropdown.Item key={index} as={Link} to={`/posts/${post.id}`}>
-                                    <strong>
-                                        {`${post.make} ${post.model}`}
-                                    </strong>
-                                </NavDropdown.Item>
-                            ))}
-                        </NavDropdown>
-                        ): (
-                            <>
-                            <p>
+                        <p>
                             Trending car posts
                         </p>
                         <ul>                       
                             {trendingCarPosts.map((post, index) => (
-                                <li key={index} className='mb-3'>
-                                    <Link to={`/posts/${post.id}`}>
+                                <li 
+                                    key={index} 
+                                    className='mb-3'
+                                >
+                                    <Link 
+                                        to={`/posts/${post.id}`}
+                                    >
                                         <p>
                                             <FaCar className="mr-2" />
                                             {`${post.make} ${post.model}`}

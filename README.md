@@ -145,15 +145,16 @@ All wireframes are made with Balsamiq.
 * As a User, I can continue to scroll through posts on the application so that I can continue to see contents without having to use the next button
 
 * As a Logged in user, I can view posts from users I follow so that I can know about the latest content from the people I follow.
-* As a User, I can see time the post was created so that I can know how long it was the post has been made.
 
-## Post Page
+* As a User, I can see time the post was created so that I can know how long it was the post has been made.
 
 * As a User, I can view the details of a single post so that I can access more information about the post.
 
 * As a Logged in user, I can update my posts so that I can make corrections after creating it.
 
 * As a logged in user, I can delete my posts so that I can remove my contents from the application.
+
+## Reviews
 
 * As a logged in user, I can add reviews so that I can contribute my knowledge about the specific car to the platform.
 
@@ -164,6 +165,90 @@ All wireframes are made with Balsamiq.
 * As a User, I can delete reviews I created so that I can remove my reviews from the post and the application.
 
 * As a logged in user, I can update my review on my post so that I can correct wrong information on the review. 
+
+## Upvotes and Downvotes Posts
+
+* As a Logged in user, I can either upvote a post or downvote it so that I can communicate my prefrences accurately to the platform users.
+
+* As a user, I can see upvote or downvote counts next to the upvote\downvote icon on the posts page.
+
+* As a User, I can view upvoted posts by a user so that I can discover and appreciate the content preferences and interests of that user 
+
+* As a logged in user, I can view posts downvoted by a user so that I can gain more insight into an individual's automotive tastes and preferences.
+
+
+## Profile Page
+
+* As a User, I can access a user's profile so that I can see the details about the users of the application.
+
+* As a User, I can see the user's display picture so that I can identify the users of the application.
+
+* As a User, I can see posts made by the user so that I can view their contributuions to the platform.
+
+* As a Logged in user, I can update my profile information so that I can add more details about myself.
+
+* As a Logged in user, I can update my username and password so that I can enhance the security of my account and personalize my online identity.
+
+* As a User, I can view a list of most followed profile so that I can discover popular users and probably connect with like-minded individuals enhancing my overall exprience of the platform.
+
+* As a Logged in user, I can follow a user I admire so that I can be updated by their posts.
+
+* As a Logged in user, I can unfollow a user I follow so that I can change my mind and stop getting their updates.
+
+---
+# Features
+
+This section discusses the features and pages of the project 'My Car', the design choices made, discussion of the components use that make up the different pages seen by users.
+
+## General Project Structure
+
+My Car renders in two different ways depending on user authentication; 'logged in or logged out'. TUser's state determines changes navbar content and restriction of actions that can be accessed by the user.
+
+## Features
+
+### Navigation
+
+The Navigation bar (NavBar) is used to navigate through the app. It renders based on the state of the user (logged in / logged out).
+
+Navbar also differes based on the device used to access the site;
+
+* On a large screen
+
+[Navbar picture on a large screen]()
+
+* On tablets and mobile devices
+
+[Navbar picture on small screen]()
+
+For a logged out user, the NavBar renders the following icon;
+
+* MyCar Logo - This is visible throughout the site and links back to the homepage.
+
+* Home - This is a Nav link item that links to the home page when clicked.
+
+* Sign In: This is a Nav link item that links to the sign in form for already existing users.
+
+* Sign Up: New users are able to use this link to access the sign up form in order to create their account.
+
+[Picture of Navigation bar for logged out user]()
+
+For a logged in user, the Nav Bar renders the following links in addition to the logo and Home links described above;
+.
+* Add Post: This link allow signed in users to access the add post form to create a post they want to add to the platform.
+
+* Feed: This link allows users to see posts from profiles they are following arranged in the descending order of creation.
+
+* Sign Out: This link allows signed in users terminate their session.
+
+* Current User Profile Name and Picture: This shows the currently signed in user and also links up to the user's profile
+
+[Picture of the NavBar for signed in user]()
+
+
+
+
+
+
 
 
 # Bugs

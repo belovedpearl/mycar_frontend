@@ -211,14 +211,14 @@ function ProfilePage() {
 
   const profileSections = (
         <>
-            <Tabs defaultActiveKey="posts" id="profile-tab">
-                <Tab eventKey="posts" title={`${profile?.owner}'s Posts`}>
+            <Tabs className="d-flex justify-content-around" defaultActiveKey="posts" id="profile-tab">
+                <Tab eventKey="posts" title={`Posts`}>
                     { mainProfilePosts }
                 </Tab>
-                <Tab eventKey="upvotes" title={`${profile?.owner}'s Upvotes`}>
+                <Tab eventKey="upvotes" title={`Upvotes`}>
                     { upvotes }
                 </Tab>
-                <Tab eventKey="downvotes" title={`${profile?.owner}'s Downvotes`}>
+                <Tab eventKey="downvotes" title={`Downvotes`}>
                     { downvotes }
                 </Tab>
             </Tabs>

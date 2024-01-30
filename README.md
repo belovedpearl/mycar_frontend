@@ -245,6 +245,76 @@ For a logged in user, the Nav Bar renders the following links in addition to the
 [Picture of the NavBar for signed in user]()
 
 
+## Authentication
+
+New users can create an account by clicking on the 'Sign Up' link on the Navigation Bar to create a user account. 
+
+A sign up form is displayed, processed using the standard dj-rest/auth/registration. Once successful, a user profile is automatically setup and the user is able to access the full functions of a registered user.
+
+[Picture of the signup form]()
+
+For an already existing user to access their account, a click on the Sign In menu option opens up the sign in form to complete to sign into their account.
+
+
+[Picture of the sign in form]()
+
+To promote accessibility, the authentication forms are linked to the other;
+
+The sign in form has a link to the sign up page for unauthenticated users trying to use the sign in form.
+
+[Picture of the signup link from the signin page]()
+
+The sign up form has a link to the sign in page for authenticated users to useto access their account.
+
+[Picture of the signin link from the signup page]()
+
+---
+
+## Homepage/Landing Page
+
+The homepage consists of the following;
+
+* Posts
+* Popular Profile component
+* Trending posts component
+* Search feature
+
+### Post
+
+All created posts on the platform are displayed on the homepage once successful. Posts created are displayed in the descending order of creation. On each post displayed, users can see the following;
+
+* Post author name and picture
+* Time of post creation.
+* Number of upvotes on the post
+* Number of downvotes on the post
+* Number of reviews on the post
+* Author's description of the post
+
+[Picture of the post page]()
+
+### Popular Profile Component
+
+The popular profiles component features to display profiles ordered based on the number of followers from highest to lowest.
+
+On large screens, this component displays on the right side of the post list and can feature up to ten profiles.
+
+On small screens, popular profile component displays above the search feature on smaller screens and features four profiles.
+
+From this component, signed in users can follow another user clicking the 'Follow' button. For a signed out user/unauthenticated user, the follow button is not visible.
+
+[Picture of the popular profile component for signed in user]()
+
+If a user is following the profile user, the button shows 'unfollow' allowing the user to also unfollow a user from the profile component.
+
+[Picture of the popular profile component for signed out/unauthenticated user]()
+
+An unauthenticated user is only able to see the profile display picture and name. They can also click on the profile picture to access the user's profile.
+
+### Trending Posts Components
+
+This component displa
+
+
 
 
 

@@ -1,0 +1,20 @@
+.SocialShare{
+    width: fit-content;
+}
+
+.DropdownButton{
+    background-color: #001F3F;
+} 
+.DropdownButton:hover{
+    background-color: #848484;
+}
+.DropdownButton:active{
+    background-color: #848484 !important;
+}
+
+.MenuDisplay{
+    min-width: 50px;
+}
+.dropdown-menu {
+    min-width: 0;
+}

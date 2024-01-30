@@ -9,6 +9,7 @@ import { FaCommentMedical } from "react-icons/fa6";
 import { FaRegThumbsDown } from "react-icons/fa";
 import { axiosRes } from '../../api/axiosDefaults';
 import { MoreToDo } from '../../components/MoreToDo'
+import Share from '../../components/Share'
 
 const Post = (props) => {
     const {
@@ -218,6 +219,7 @@ const Post = (props) => {
                 </Link>
                 {reviews_count}
                 </div>
+                <Share />
             </div>
             </Card.Body>
         </Card> 

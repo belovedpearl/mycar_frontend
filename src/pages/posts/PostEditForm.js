@@ -85,9 +85,10 @@ function PostEditForm() {
     formData.append("body_types", body_types);
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
+      console.log('new image added')
     }
     try {
-        await axiosReq.put(`/posts/${id}/`, formData);
+        await axiosReq.patch(`/posts/${id}/`, formData);
         history.push(`/posts/${id}`);
     } catch (err){
         console.log(err.response.data)

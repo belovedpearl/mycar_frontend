@@ -200,11 +200,9 @@ All wireframes are made with Balsamiq.
 
 This section discusses the features and pages of the project 'My Car', the design choices made, discussion of the components use that make up the different pages seen by users.
 
-## General Project Structure
+### General Project Structure
 
-My Car renders in two different ways depending on user authentication; 'logged in or logged out'. TUser's state determines changes navbar content and restriction of actions that can be accessed by the user.
-
-## Features
+My Car renders in two different ways depending on user authentication; 'logged in or logged out'. User's state determines changes navbar content and restriction of actions that can be accessed by the user.
 
 ### Navigation
 
@@ -312,7 +310,47 @@ An unauthenticated user is only able to see the profile display picture and name
 
 ### Trending Posts Components
 
-This component displa
+The trending posts component features to display posts ordered based on the number of upvotes from highest to lowest. It is available for view and use by all users.
+
+Each post is accessible by clicking on the list which then opens up the full posts detail.
+
+On large screen, it displays on the left side of the posts list.
+
+[Picture of Trending posts components on large screens]()
+
+On small screens, it resolves to a dropdown featured on the Navbar from where the user can view the list of posts.
+
+[Picture of Trending posts components on small screens]()
+
+---
+
+### Search Feature
+
+Users are able to search for different interest using the search bar. To improve user experience and allow for a more enjoyable search experience, users search have been customized to search by;
+
+* Year
+* Model
+* Make
+* Post Author
+
+
+[Picture of the Search bar]()
+
+---
+
+### Feed
+
+Feed filters posts by profiles the user is following. It can be accessed with the link 'Feed' on the navigation bar of a signed in user. A not found page is displayed if the user is not following any user.
+
+[Picture of the Feed page for a profile following others]()
+
+[Picture of the Feed page for a profile not following others]()
+
+---
+
+###
+
+
 
 
 
@@ -325,4 +363,6 @@ This component displa
 Access to XMLHttpRequest at 'https://mycardrfapi-d64556077ed4.herokuapp.com/dj-rest-auth/registration/' from origin 'https://3000-belovedpear-mycarfronte-xe7q5mhm7wg.ws-eu107.gitpod.io' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
 sigin link not displaying - style on the font icon made it not visible
+
+post edit not retaining image
 

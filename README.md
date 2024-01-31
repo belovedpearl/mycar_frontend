@@ -311,7 +311,7 @@ An unauthenticated user is only able to see the profile display picture and name
 
 ### Trending Posts Components
 
-The trending posts component features to display posts ordered based on the number of upvotes from highest to lowest. It is available for view and use by all users.
+The trending posts component features to display posts ordered based on the number of upvotes from highest to lowest. A post with higher number of downvotes to the upvotes is not included in the trending posts list. It is available for view and use by all users.
 
 Each post is accessible by clicking on the list which then opens up the full posts detail.
 
@@ -395,6 +395,13 @@ I have added a share function to the website to allow users share contents of ea
 Using the [react share](https://www.npmjs.com/package/react-share) documentation on react, [this video](https://youtu.be/XViKPMwEZFU?si=VjywkKN-rYOY09Cx) and a bootstrap dropdown, I was able to include a share post feature on the platforms mentioned.
 
 [Picture of the share feature]()
+
+### Upvote and Downvote
+
+Authenticated users are able to add an upvote and downvote to post by clicking on the thumbs up and thumbs down icon respectively. The website is designed in a way that users that have created an upvote for a post cannot also create a downvote for the same vote to prevent double votes from the same user.
+Authors of posts are not allowed to upvote or downvote their posts.
+
+[Picture of upvote and downvote feature]()
 
 ### Profile Page
 
@@ -485,6 +492,11 @@ Share: Reused on all posts to share contents across other platforms.
 * Classname styles not applying many times.
 
       * Replacing the '' with a {} fixed many of the classes bugs I had.
+
+* webpackHotDevClient.js:138 src/pages/posts/TrendingCarPosts.js
+  Line 24:8:  React Hook useEffect has a missing dependency: 'trendingCarPosts'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+      
+      * I removed the dependency array but I got an infinite loop, I read more about the dependency array and found out that I can ignore the warning 
 
 ---
 

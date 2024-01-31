@@ -13,15 +13,19 @@ const TrendingCarPosts = ({mobile}) => {
     useEffect( () => {
         const fetchTrendingCars = async () => {
             try {
-                const response = await axiosReq.get('/posts/?ordering=-upvotes_count');
-                    setTrendingCarPosts(response.data.results);
-                    console.log(trendingCarPosts)
+                const response = await axiosReq.get(
+                    '/posts/?ordering=-upvotes_count'
+                );
+                const filteredPosts = response.data.results.filter(
+                    post => post.upvotes_count > post.downvotes_count
+                );
+                    setTrendingCarPosts(filteredPosts);
             } catch (err) {
                 console.error(err);
             }
         }
         fetchTrendingCars();
-    });
+    }, []);
 
     return (
         <Container 

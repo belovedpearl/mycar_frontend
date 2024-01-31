@@ -10,7 +10,7 @@ import styles from '../../styles/TrendingCarPosts.module.css'
 const TrendingCarPosts = ({mobile}) => {
     const [trendingCarPosts, setTrendingCarPosts] = useState([]);
 
-    useEffect(() => {
+    useEffect( () => {
         const fetchTrendingCars = async () => {
             try {
                 const response = await axiosReq.get('/posts/?ordering=-upvotes_count');
@@ -21,7 +21,7 @@ const TrendingCarPosts = ({mobile}) => {
             }
         }
         fetchTrendingCars();
-    }, []);
+    });
 
     return (
         <Container 

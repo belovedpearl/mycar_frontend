@@ -203,6 +203,7 @@ This section discusses the features and pages of the project 'My Car', the desig
 ### General Project Structure
 
 My Car renders in two different ways depending on user authentication; 'logged in or logged out'. User's state determines changes navbar content and restriction of actions that can be accessed by the user.
+ 
 
 ### Navigation
 
@@ -348,21 +349,226 @@ Feed filters posts by profiles the user is following. It can be accessed with th
 
 ---
 
-###
+### Post Page
+
+Post page displays all a post including the reviews. The page is accessed by a click on the post image from the home page/ feed page, it can also be accessed from the review icon on a post.
+
+[Picture of post page to non post author]()
+
+[Picture of post page to a post author]()
+
+Post owners are allowed access to a dropdown from where they can edit and delete the post using the edit and delete icons. 
+
+[Picture of delete and edit icons]()
+
+Selecting the edit icons opens up the PostEditForm containing the already defined fields and user can add more information or change contents of his already created post. On successful post edit, users are redirected to the postpage where users can see the changes in the post detail he created.
+
+[Picture of the post edit form]()
 
 
+Selecting the delete icon will remove the post from the API and the user is redirected back home where the post is no longer visible.
+From this page, users are able to use the share button, see upvotes and downvotes count on the post and also the count of the reviews.
 
 
+### Reviews
+
+Just below the post detail is the reviews section where authenticated users are allowed to add reviews about a car post.
+
+[Picture of review section for authenticated users]()
+
+If there are no reviews, users see the message informing them of no review and prompting them to add one.
+
+[Picture of review section with no reviews]()
+
+Review owners have access to edit and delete their reviews using the dropdown menu that pops up when the three dots is clicked.
+
+[Picture of delete and edit section for review owners]()
+
+Unauthenticated users can only view already existing reviews and cannot perform any actions on it.
+
+[picture of review section for unaunthenticated users]()
+
+### Share Post
+
+I have added a share function to the website to allow users share contents of each posts across different medias like twitter, facebook, pinterest and mail.  All users can share posts from this platform, this is to further promote the awareness for this site. 
+
+Using the [react share](https://www.npmjs.com/package/react-share) documentation on react, [this video](https://youtu.be/XViKPMwEZFU?si=VjywkKN-rYOY09Cx) and a bootstrap dropdown, I was able to include a share post feature on the platforms mentioned.
+
+[Picture of the share feature]()
+
+### Profile Page
+
+The profile page holds the profile information about a user, it can be accessed by clicking on the profile picture of the user throughout the website.
+
+[Picture of profile page]()
+
+Information displayed by the profile page include the following;
+
+ * Profile picture: If not available, a default picture is used which can be later updated if desired.
+ * Username
+ * Profile Stats which includes the number of posts created, number of profiles the user is following(followed) and the number of profiles following the user (following).
+ * Posts created
+ * Posts Upvoted
+ * Posts Downvoted
+
+The profile page conditionally renders the following profile information if available;
+
+* Job title
+* Current employer
+* Location
+* About
+
+A new profile is automatically created when a new user signs up to the platform.
+
+[Picture of a new user profile page]()
+
+To edit their profile information, users can use the three dots menu to access and update information about their profile.
+
+[Picture of the menu options on the profile page]()
+
+[Picture of the edit profile form]()
+
+From the profile page, each user can change their username and password by accessing the 'change username and change password form' clicking the menu icons desired.
+
+[Picture of the change password form]()
+
+[Picture of the change username form]()
 
 
+### Follow and Unfollow
+
+Follow function is linked to each profile which acts as a way to foster relationships on the platform. User can click the follow button to follow other profiles. Users are not allowed to follow their own profile.
+
+With each follow created by a user, the number of his following stats increases by 1. If the user is followed by other user, his followed stats increases by the total number of followers.
+
+Follow button is visible on the Popular profile components of an authenticated user and on the profile page
+
+[Picture of follow button on the popular profile page]()
+
+[Picture of follow button on the profile page]()
+
+Once a follow is established between two profiles, the follow button changes to unfollow allowing the user to change his mind about following a user. Once clicked, the followers stats of the profile reduces.
+
+[Picture of unfollow button on the popular profile page]()
+
+[Picture of unfollow button on the profile page]()
 
 
+## Reusable Components
 
+Asset:  Used to load images, messages and loading spinners across the website.
+Avatar Used to display avatars across the website.
+NavBar: Used across the website for uniform view to users.
+Not Found Page: Page displayed when users provides an invalid url.
+Three Dots: Used to access dropdown menu for further actions.
+MoreToDo: Used to allow users access the edit and delete functions
+Share: Reused on all posts to share contents across other platforms.
+
+[Picture of 3 dots]()
+[Picture of Profile Dropdown]()
+[Picture of MoreToDo Dropdown]()
+
+---
 
 # Bugs
-Access to XMLHttpRequest at 'https://mycardrfapi-d64556077ed4.herokuapp.com/dj-rest-auth/registration/' from origin 'https://3000-belovedpear-mycarfronte-xe7q5mhm7wg.ws-eu107.gitpod.io' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
-sigin link not displaying - style on the font icon made it not visible
+* Access to XMLHttpRequest at 'https://mycardrfapi-d64556077ed4.herokuapp.com/dj-rest-auth/registration/' from origin 'https://3000-belovedpear-mycarfronte-xe7q5mhm7wg.ws-eu107.gitpod.io' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
-post edit not retaining image
+* Sigin link not displaying - style on the font icon made it not visible
+
+      * Adjusting the icon dolor fixed this.
+      
+* Post edit not retaining image
+
+      * Replacing the 'Put method' in the request with a 'Patch' fixed this.
+
+* Classname styles not applying many times.
+
+      * Replacing the '' with a {} fixed many of the classes bugs I had.
+
+---
+
+# Design Choices
+
+The design choices made in the project includes;
+
+## Font
+
+I have chosen to use Roboto font for this project as it is clean, bold, and has a nice presentation. It has a fallback of Sans-serif.
+
+## Colour Scheme
+
+I have chosen to use shades of blue and some touch of red where required across the website.
+
+Body Background Color: A shade of white (#f5f5f5) was used throughout the website;
+
+Navigation Bar, upvote icons, downvote icons, review icon and count, follow button, post font color, All have a shade of blue (#001F3F).
+
+In order to boldly project the upvote and downvote icons when clicked/ hovered, I used the red color shade #f85032 which is bright and eye catching.
+
+Each posts features on a white (#ffffff) background to properly distinguish between the background and the post.
+.
+# Future Features
+
+* Improve user search experience by adding a title field consisting of 'make and model'.
+* Allow users to report posts that do not adhere to the aims of the site.
+* Develop admin frontend functionality to moderate contents posted on the website
+* Explore react share library to implement the share function
+
+# Technologies Used
+
+## Languages
+
+HTML5 - Provides the content and structure for the website
+CSS3 - Provides the styling for the website
+JavaScript - Used for interactivity of elements on the website
+React.js - Provides the base for the frontend components
+
+## Frameworks and Web Applications
+
+React Bootstrap - A css framework by bootstrap to be used by react projects.
+
+Github - Used to host the repository, store codes and commit history and also manage the project board.
+
+Balsamiq - Used to create the wireframes
+
+Coolors - Used to pick the colour scheme of the website
+
+Favicon - Used to create the favicon
+
+Heroku - A cloud platform hosts the deployed application.
+
+Google Fonts - Used as a source to import the website font
+
+Lighthouse - Used to test site performance
+
+Google Chrome DevTools - Used to debug and test responsiveness
+
+Cloudinary - Used to hosts image files in the project.
+
+Design AI - Used to generate the illustrations used across the website
+
+[W3C Validation](https://validator.w3.org/) - Used to validate HTML code
+
+[w3 css Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
+
+JSHint Validation - Used to validate JavaScript code
+
+Pexels - Free stock image provider for posts and avatars that were uploaded
+
+Vecteezy - Used to source free vectors for default avatars.
+
+Font Awesome - Used for some of the icons.
+
+
+
+
+
+
+
+
+
+
+
+
 

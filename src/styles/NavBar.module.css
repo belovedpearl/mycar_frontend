@@ -14,7 +14,8 @@
   transition: color ease-in-out 0.3s;
 }
 .ToggleButton{
-  color: #ffffff !important;
+  background-color: white;
+  width: fit-content;
 }
 
 @media (max-width: 768px) {
@@ -29,3 +30,5 @@
     margin-left: 15px;
    }
 }
+
+

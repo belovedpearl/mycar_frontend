@@ -3,21 +3,11 @@
 }
 
 .DropdownButton{
-    background-color: #001F3F;
+    background-color: #001F3F !important;
 } 
 .DropdownButton:hover{
     background-color: #848484;
 }
-.DropdownButton:active{
-    background-color: #848484 !important;
-}
-.show>.btn-primary.dropdown-toggle{
-    background-color: #001F3F;
-}
-
 .MenuDisplay{
     min-width: 50px;
-}
-.dropdown-menu {
-    min-width: 0;
 }

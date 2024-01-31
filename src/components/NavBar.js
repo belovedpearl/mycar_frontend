@@ -68,7 +68,7 @@ const NavBar = () => {
                                 to='/feed'  
                                 className={`ml-3 ${styles.NavLink} ${styles.NavLinkText}`}
                             >
-                                <div className={styles.LinkContainer}>
+                                <div className={`${styles.LinkContainer} ${styles.AddandSign}`}>
                                     <MdOutlineDynamicFeed size={30} />
                                     Feed
                                 </div>
@@ -78,15 +78,14 @@ const NavBar = () => {
                                 className={`ml-3 ${styles.NavLink} ${styles.NavLinkText}`}
                                 onClick = { handleSignOut }
                             >
-                                <div className={`ml-3 ${styles.LinkContainer} ${styles.AddandSign}`}>
+                                <div className={`${styles.LinkContainer} ${styles.AddandSign}`}>
                                     <FaSignOutAlt size={30}/>
                                     Sign out
                                 </div>
                             </NavLink>
                             <NavLink 
                                 to={`/profiles/${currentUser?.profile_id}`}
-                                className={`ml-3 ${styles.NavLink} ${styles.NavLinkText}`}
-                                dataTest= 'user_profile' 
+                                className={`${styles.NavLink} ${styles.NavLinkText}`} 
                             >
                                 <div className={styles.LinkContainer}>
                                     <Avatar 
@@ -137,6 +136,7 @@ const NavBar = () => {
                         onClick={() => setExpanded(!expanded)} 
                         aria-controls="basic-navbar-nav" 
                         className={styles.ToggleButton}
+                        // className={`${styles.ToggleButton} navbar-light`}
                     />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto text-left">
@@ -145,7 +145,7 @@ const NavBar = () => {
                                 className={`${styles.NavLink} mr-2 ${styles.HomeIcon}`} 
                                 activeClassName = {styles.Active} 
                             >
-                                <div className={styles.LinkContainer}>
+                                <div className={`${styles.LinkContainer} ${styles.AddandSign}`}>
                                     <FaHome className='mr-1' size={30}/>
                                     Home
                                 </div>

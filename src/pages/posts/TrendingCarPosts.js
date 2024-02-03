@@ -26,7 +26,7 @@ const TrendingCarPosts = ({mobile}) => {
                     // set them as trending posts
                     setTrendingCarPosts(filteredPosts);
             } catch (err) {
-                console.error(err);
+                // console.error(err);
             }
         }
         fetchTrendingCars();

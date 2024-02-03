@@ -87,7 +87,7 @@ function PostEditForm() {
             await axiosReq.patch(`/posts/${id}/`, formData);
             history.push(`/posts/${id}`);
         } catch (err){
-            console.log(err.response.data)
+            // console.log(err.response.data)
             if (err.response?.status !== 401) {
             setErrors(err.response?.data);
             }

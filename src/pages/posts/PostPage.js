@@ -35,7 +35,7 @@ function PostPage() {
                 setPost({results: [post]});
                 setReviews(reviews);
             } catch (err){
-                console.log(err)
+                // console.log(err)
             }
         }
         handleMount()

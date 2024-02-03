@@ -20,8 +20,11 @@ const Profile = (props) => {
            className= {`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
         >
             <div>
-                <Link className="align-self-center" to={`/profiles/${id}`}>
-                <Avatar src={image} height={imageSize} />
+                <Link 
+                    className="align-self-center" 
+                    to={`/profiles/${id}`}
+                >
+                    <Avatar src={image} height={imageSize} />
                 </Link>
             </div>
             <div 
@@ -42,14 +45,14 @@ const Profile = (props) => {
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
                 onClick={() => handleUnfollow(profile)}
                 >
-                Unfollow
+                    Unfollow
                 </Button>
                 ) : (
                 <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
                 onClick={() => handleFollow(profile)}
                 >
-                Follow
+                    Follow
                 </Button>
                 ))}
             </div>

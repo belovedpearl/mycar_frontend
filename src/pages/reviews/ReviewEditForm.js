@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-
 import styles from "../../styles/ReviewCreateEditForm.module.css";
 
 function ReviewEditForm(props) {
@@ -46,13 +44,13 @@ function ReviewEditForm(props) {
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group className="pr-1">
-              <Form.Control
-                className={styles.Form}
-                as="textarea"
-                value={formContent}
-                onChange={handleChange}
-                rows={2}
-              />
+                <Form.Control
+                  className={styles.Form}
+                  as="textarea"
+                  value={formContent}
+                  onChange={handleChange}
+                  rows={2}
+                />
             </Form.Group>
             <div className="text-right">
               <button

@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import Asset from "../../components/Assets";
-
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -29,7 +27,11 @@ function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
     const {id} = useParams()
-    const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData()
+    const { 
+        setProfileData, 
+        handleFollow, 
+        handleUnfollow 
+    } = useSetProfileData()
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.owner;
@@ -49,8 +51,12 @@ function ProfilePage() {
                     [
                         axiosReq.get(`/profiles/${id}/`),
                         axiosReq.get(`/posts/?owner__profile=${id}`),
-                        axiosReq.get(`/posts/?upvotes__owner__profile=${id}&ordering=-upvotes__created_at&`),
-                        axiosReq.get(`/posts/?downvotes__owner__profile=${id}&ordering=-downvotes__created_at&`),                       
+                        axiosReq.get(
+                            `/posts/?upvotes__owner__profile=${id}&ordering=-upvotes__created_at&`
+                        ),
+                        axiosReq.get(
+                            `/posts/?downvotes__owner__profile=${id}&ordering=-downvotes__created_at&`
+                        ),                       
                     ]
                 )
                 setProfileData(prevState => ({
@@ -211,7 +217,11 @@ function ProfilePage() {
 
   const profileSections = (
         <>
-            <Tabs className="d-flex justify-content-around" defaultActiveKey="posts" id="profile-tab">
+            <Tabs 
+                className="d-flex justify-content-around" 
+                defaultActiveKey="posts" 
+                id="profile-tab"
+            >
                 <Tab eventKey="posts" title={`Posts`}>
                     { mainProfilePosts }
                 </Tab>

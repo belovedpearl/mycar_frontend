@@ -28,7 +28,6 @@ a:hover i {
 
 
 i {
-  /* color: #ffffff; */
   color: #001F3F;
   font-size: 1.6rem;
   padding: 3px;
@@ -41,23 +40,13 @@ i:hover {
   color:#848484;
 }
 
-/* .Content {
-  background-color: #848484;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #001F3F;
-  
-} */
 .Content {
   padding: 12px;
   font-weight: bold;
   background-color: #FFFFFF;
   
 }
-/* .NoResults {
-  padding: 12px;
-  font-weight: bold;
-} */
+
 .NoResults {
   background-color: #848484;
   padding: 12px;

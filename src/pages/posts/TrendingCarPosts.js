@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import appStyles from '../../App.module.css';
-import { Container, NavDropdown } from 'react-bootstrap';
+// bootstrap imports
+import Container from 'react-bootstrap/Container';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 import { axiosReq } from '../../api/axiosDefaults';
 import { Link } from 'react-router-dom';
 import { FaCar } from 'react-icons/fa';
@@ -16,9 +19,11 @@ const TrendingCarPosts = ({mobile}) => {
                 const response = await axiosReq.get(
                     '/posts/?ordering=-upvotes_count'
                 );
+                // filter out posts with higher upvotes than downvotes
                 const filteredPosts = response.data.results.filter(
                     post => post.upvotes_count > post.downvotes_count
                 );
+                    // set them as trending posts
                     setTrendingCarPosts(filteredPosts);
             } catch (err) {
                 console.error(err);
@@ -37,14 +42,18 @@ const TrendingCarPosts = ({mobile}) => {
                         <NavDropdown title="Trending" id="basic-nav-dropdown"
                         className={styles.DropDown}
                         >
-                        {trendingCarPosts.map((post, index) => (
-                            <NavDropdown.Item key={index} as={Link} to={`/posts/${post.id}`}>
-                                <strong>
-                                    {`${post.make} ${post.model}`}
-                                </strong>
-                            </NavDropdown.Item>
-                        ))}
-                    </NavDropdown>
+                            {trendingCarPosts.map((post, index) => (
+                                <NavDropdown.Item 
+                                    key={index} 
+                                    as={Link} 
+                                    to={`/posts/${post.id}`}
+                                >
+                                    <strong>
+                                        {`${post.make} ${post.model}`}
+                                    </strong>
+                                </NavDropdown.Item>
+                            ))}
+                        </NavDropdown>
                     ): (
                     <>
                         <p>

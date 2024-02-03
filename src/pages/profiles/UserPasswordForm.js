@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+// bootstrap imports
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -44,7 +44,9 @@ const UserPasswordForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axiosRes.post("/dj-rest-auth/password/change/", userData);
+            await axiosRes.post(
+                "/dj-rest-auth/password/change/", userData
+            );
             history.goBack();
         } catch (err) {
             console.log(err);
@@ -58,7 +60,9 @@ const UserPasswordForm = () => {
                 <Container className={appStyles.Content}>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group>
-                          <Form.Label>New password</Form.Label>
+                          <Form.Label>
+                            New password
+                          </Form.Label>
                           <Form.Control
                               placeholder="new password"
                               type="password"

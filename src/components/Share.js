@@ -3,9 +3,10 @@ import { Dropdown } from 'react-bootstrap';
 import { FaShare } from 'react-icons/fa';
 import styles from '../styles/Share.module.css';
 
-const SocialShare = () => {
-    const url = window.location.href;
-    const description = "Intresting car post:"
+const SocialShare = ({postUrl, subject}) => {
+    const url = postUrl
+    const description = subject
+
     return (
         <div className={styles.SocialShare}>
             <Dropdown>

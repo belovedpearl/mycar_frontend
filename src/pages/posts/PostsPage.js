@@ -16,6 +16,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import TrendingCarPosts from "./TrendingCarPosts";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 function PostsPage({message, filter= ''}) {
@@ -24,6 +25,7 @@ function PostsPage({message, filter= ''}) {
     const { pathname } = useLocation();
 
     const [query, setQuery] = useState("");
+    const currentUser = useCurrentUser();
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -45,7 +47,7 @@ function PostsPage({message, filter= ''}) {
         return () => {
           clearTimeout(timer);
         };
-      }, [filter, query, pathname]);
+      }, [filter, query, pathname, currentUser]);
   
   return (
     <Row className="h-100">

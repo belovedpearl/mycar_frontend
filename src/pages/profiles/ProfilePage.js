@@ -44,7 +44,7 @@ function ProfilePage() {
             try{
                 const [
                     {data: pageProfile}, 
-                    { data: profilePosts }, 
+                    {data: profilePosts}, 
                     {data: upvotePosts}, 
                     {data: downvotePosts}
                         ] = await Promise.all(
@@ -72,7 +72,7 @@ function ProfilePage() {
             }
         }
         fetchData(); 
-    }, [id, upvotePosts, downvotePosts, setProfileData])
+    }, [id, setProfileData])
 
     const mainProfile = (
         <>

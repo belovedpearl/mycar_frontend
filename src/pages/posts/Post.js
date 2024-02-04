@@ -42,7 +42,6 @@ const Post = (props) => {
     const currentUser = useCurrentUser()
     const is_owner = currentUser?.username === owner
     const history = useHistory()
-    const url = window.location.href;
     const subject = `Share your opinion on ${make} ${model} post`
     // Allows post update
     const handleEdit = () => {
@@ -293,7 +292,7 @@ const Post = (props) => {
                     </Link>
                     {reviews_count}
                 </div>
-                <Share postUrl={url} subject={subject}/>
+                <Share postId={id} subject={subject}/>
             </div>
             </Card.Body>
         </Card> 

@@ -3,8 +3,8 @@ import { Dropdown } from 'react-bootstrap';
 import { FaShare } from 'react-icons/fa';
 import styles from '../styles/Share.module.css';
 
-const SocialShare = ({postUrl, subject}) => {
-    const url = postUrl
+const SocialShare = ({postId, subject}) => {
+    const url = `${window.location.origin}/posts/${postId}`;
     const description = subject
 
     return (

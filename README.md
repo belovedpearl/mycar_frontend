@@ -4,7 +4,7 @@
 
 ![Responsiveness]()
 
-[View site responsiveness here]()
+[View site responsiveness here](https://ui.dev/amiresponsive?url=https://mycarfrontend-7c56357f5f33.herokuapp.com/)
 
 ---
 
@@ -38,7 +38,7 @@ The interactive platform of MyCar empowers users to initiate discussions by addi
 
 The platform renders differently depending on the authentication state of the user. Non-authenticated users can view all posts, posts details, perform search and filter registered users posts, upvotes and downvotes. They are also able to register using the signup link on the navbar. In addition, Authenticated users can add post, add reviews, upvote and downvote posts. They can also follow another user and also unfollow them.
  
-[View the live project here]().
+[View the live project here](https://mycarfrontend-7c56357f5f33.herokuapp.com/).
 
 ---
 
@@ -75,17 +75,17 @@ While conceiving the project the following were the wireframes were used to repr
 
 All wireframes are made with Balsamiq.
 
-[Link for the wireframe pictures can be found here]()
+[Link for the wireframe pictures can be found here](screenshots/wireframes)
 
 # Wireframes 1: The Landing Page
 
 ### Desktop and Laptop
 
-![Desktop and Laptop]()
+![Desktop and Laptop](screenshots/wireframes/largescreenhome1.png)
 
 ### Mobile
 
-![Mobile]()
+![Mobile](screenshots/wireframes/mobilehome.png)
 
 ---
 
@@ -93,12 +93,12 @@ All wireframes are made with Balsamiq.
 
 ### Desktop and Laptop
 
-![Desktop and Laptop]()
+![Desktop and Laptop](screenshots/wireframes/largescreenreview.png)
 
 
 ### Mobile
 
-![Mobile]()
+![Mobile](screenshots/wireframes/)
 
 ---
 
@@ -106,12 +106,12 @@ All wireframes are made with Balsamiq.
 
 ### Desktop and Laptop
 
-![Desktop and Laptop]()
+![Desktop and Laptop](screenshots/wireframes//largescreenprofile1.png)
 
 
 ### Mobile
 
-![Mobile]()
+![Mobile](screenshots/wireframes/tabletandmobileprofile.png)
 
 ---
 # User's Story

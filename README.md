@@ -2,7 +2,7 @@
 
 [View code here](https://github.com/belovedpearl/mycar_frontend)
 
-![Responsiveness]()
+![Responsiveness](screenshots/livesite/mycarapp.png)
 
 [View site responsiveness here](https://ui.dev/amiresponsive?url=https://mycarfrontend-7c56357f5f33.herokuapp.com/)
 
@@ -98,7 +98,7 @@ All wireframes are made with Balsamiq.
 
 ### Mobile
 
-![Mobile](screenshots/wireframes/)
+![Mobile](screenshots/wireframes/mobilereviewpage.png)
 
 ---
 
@@ -112,6 +112,18 @@ All wireframes are made with Balsamiq.
 ### Mobile
 
 ![Mobile](screenshots/wireframes/tabletandmobileprofile.png)
+
+<details>
+<summary>Details of other wireframes drawn for the development</summary>
+    <img src="screenshots/wireframes/largescreenaddandeditpost.png" width="80%">
+    <img src="screenshots/wireframes/largescreengignin.png" width="80%">
+    <img src="screenshots/wireframes/largescreenhome2.png" width="80%">
+    <img src="screenshots/wireframes/largescreenprofile2.png" width="80%">
+    <img src="screenshots/wireframes/largescreensignout.png" width="80%">
+    <img src="screenshots/wireframes/tabletandmobileprofile-2.png" width="80%">
+    <img src="screenshots/wireframes/tablethome-2.png" width="80%">
+    <img src="screenshots/wireframes/tablethome.png" width="80%">
+</details>
 
 ---
 # User's Story
@@ -166,7 +178,7 @@ All wireframes are made with Balsamiq.
 
 * As a logged in user, I can update my review on my post so that I can correct wrong information on the review. 
 
-## Upvotes and Downvotes Posts
+## Upvote and Downvote Posts
 
 * As a Logged in user, I can either upvote a post or downvote it so that I can communicate my prefrences accurately to the platform users.
 
@@ -198,6 +210,8 @@ All wireframes are made with Balsamiq.
 ---
 # Features
 
+---
+
 This section discusses the features and pages of the project 'My Car', the design choices made, discussion of the components use that make up the different pages seen by users.
 
 ### General Project Structure
@@ -209,7 +223,7 @@ My Car renders in two different ways depending on user authentication; 'logged i
 
 The Navigation bar (NavBar) is used to navigate through the app. It renders based on the state of the user (logged in / logged out).
 
-Navbar also differes based on the device used to access the site;
+Navbar also differs based on the device used to access the site;
 
 * On a large screen
 
@@ -327,12 +341,13 @@ On small screens, it resolves to a dropdown featured on the Navbar from where th
 
 ### Search Feature
 
-Users are able to search for different interest using the search bar. To improve user experience and allow for a more enjoyable search experience, users search have been customized to search by;
+Users are able to search for different interest using the search bar on the homepage. To improve user experience and allow for a more enjoyable search experience, users search have been customized to search by;
 
 * Year
 * Model
 * Make
 * Post Author
+* Body types
 
 
 [Picture of the Search bar]()
@@ -357,7 +372,7 @@ Post page displays all a post including the reviews. The page is accessed by a c
 
 [Picture of post page to a post author]()
 
-Post owners are allowed access to a dropdown from where they can edit and delete the post using the edit and delete icons. 
+Post owners are allowed access to a dropdown from where they can edit and delete the post using the edit and delete icons. Non-post owners cannot perform update or delete functions on any post.
 
 [Picture of delete and edit icons]()
 
@@ -392,13 +407,13 @@ Unauthenticated users can only view already existing reviews and cannot perform 
 
 I have added a share function to the website to allow users share contents of each posts across different medias like twitter, facebook, pinterest and mail.  All users can share posts from this platform, this is to further promote the awareness for this site. 
 
-Using the [react share](https://www.npmjs.com/package/react-share) documentation on react, [this video](https://youtu.be/XViKPMwEZFU?si=VjywkKN-rYOY09Cx) and a bootstrap dropdown, I was able to include a share post feature on the platforms mentioned.
+Using the [react share](https://www.npmjs.com/package/react-share) documentation on react, [this video](https://youtu.be/XViKPMwEZFU?si=VjywkKN-rYOY09Cx) and a bootstrap dropdown, I was able to include a share post feature on the platforms mentioned. Posts can be shared from the homepage and from the post detail page.
 
 [Picture of the share feature]()
 
 ### Upvote and Downvote
 
-Authenticated users are able to add an upvote and downvote to post by clicking on the thumbs up and thumbs down icon respectively. The website is designed in a way that users that have created an upvote for a post cannot also create a downvote for the same vote to prevent double votes from the same user.
+Authenticated users are able to add an upvote and downvote to post by clicking on the thumbs up and thumbs down icon respectively. The website is designed in a way that users that have created an upvote for a post cannot also create a downvote for the same vote to prevent double votes from the same user. Also double clicking the icon will remove the already created vote.
 Authors of posts are not allowed to upvote or downvote their posts.
 
 [Picture of upvote and downvote feature]()
@@ -481,6 +496,8 @@ Share: Reused on all posts to share contents across other platforms.
 
 * Access to XMLHttpRequest at 'https://mycardrfapi-d64556077ed4.herokuapp.com/dj-rest-auth/registration/' from origin 'https://3000-belovedpear-mycarfronte-xe7q5mhm7wg.ws-eu107.gitpod.io' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
+      * Removing the cookie blocker on my system fixed this. 
+
 * Sigin link not displaying - style on the font icon made it not visible
 
       * Adjusting the icon dolor fixed this.
@@ -497,6 +514,12 @@ Share: Reused on all posts to share contents across other platforms.
   Line 24:8:  React Hook useEffect has a missing dependency: 'trendingCarPosts'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
       
       * I removed the dependency array but I got an infinite loop, I read more about the dependency array and found out that I can ignore the warning 
+
+* Share post feature not sharing the specific post content but the page its clicked on.
+
+       * Refactoring my code to share the specific post id fixed this.
+
+
 
 ---
 
@@ -519,68 +542,199 @@ Navigation Bar, upvote icons, downvote icons, review icon and count, follow butt
 In order to boldly project the upvote and downvote icons when clicked/ hovered, I used the red color shade #f85032 which is bright and eye catching.
 
 Each posts features on a white (#ffffff) background to properly distinguish between the background and the post.
+
+Different color combination used and their contrast ratio is summarized below:
+
+
+---
 .
 # Future Features
 
 * Improve user search experience by adding a title field consisting of 'make and model'.
+
 * Allow users to report posts that do not adhere to the aims of the site.
+
 * Develop admin frontend functionality to moderate contents posted on the website
-* Explore react share library to implement the share function
+
+* Explore react share library to implement the share function and also implement share count.
+
+* Allow users add more than one image.
+
+* Allow users report post and users to limit unwanted posts and hold users accountable for using the application
+
+---
 
 # Technologies Used
 
 ## Languages
 
 HTML5 - Provides the content and structure for the website
+
 CSS3 - Provides the styling for the website
+
 JavaScript - Used for interactivity of elements on the website
+
 React.js - Provides the base for the frontend components
 
 ## Frameworks and Web Applications
 
-React Bootstrap - A css framework by bootstrap to be used by react projects.
+[React Bootstrap](https://react-bootstrap-v4.netlify.app) - A css framework by bootstrap to be used by react projects.
 
-Github - Used to host the repository, store codes and commit history and also manage the project board.
+[Github](https://github.com) - Used to host the repository, store codes and commit history and also manage the project board.
 
-Balsamiq - Used to create the wireframes
+[Balsamiq](https://balsamiq.cloud) - Used to create the wireframes
 
-Coolors - Used to pick the colour scheme of the website
+[Coolors](https://coolors.co/) - Used to pick the colour scheme of the website
 
-Favicon - Used to create the favicon
+[Favicon](https://favicon.io) - Used to create the favicon
 
-Heroku - A cloud platform hosts the deployed application.
+[Heroku](https://heroku.com) - A cloud platform hosts the deployed application.
 
-Google Fonts - Used as a source to import the website font
+[Google Fonts](https://fonts.google.com) - Used as a source to import the website font
 
 Lighthouse - Used to test site performance
 
 Google Chrome DevTools - Used to debug and test responsiveness
 
-Cloudinary - Used to hosts image files in the project.
+[Cloudinary](https://cloudinary.com) - Used to hosts image files in the project.
 
-Design AI - Used to generate the illustrations used across the website
+[Design AI](https://designs.ai) - Used to generate the illustrations used across the website
 
 [W3C Validation](https://validator.w3.org/) - Used to validate HTML code
 
 [w3 css Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
 
-JSHint Validation - Used to validate JavaScript code
+[JSHint Validation](https://jshint.com) - Used to validate JavaScript code
 
-Pexels - Free stock image provider for posts and avatars that were uploaded
+[Pexels](https://pexels.com) - Free stock image provider for posts and avatars that were uploaded
 
-Vecteezy - Used to source free vectors for default avatars.
+[Vecteezy](https://www.vecteezy.com) - Used to source free vectors for default avatars.
 
-Font Awesome - Used for some of the icons.
+[Font Awesome](https://fontawesome.com) - Used for some of the icons.
+
+[React Icons](https://react-icons.github.io/)
+
+---
+# Development and Deployment
+
+## Development Workspace Setup
+
+* Create a new workspace using [code institute specific template](https://github.com/new?template_name=react-ci-template&template_owner=Code-Institute-Org).
+
+* Give your application a name
+
+* Click on the **create repository** button  to create a new repository for the project.
+      * Make sure the repository name is written in lowercase.
+
+* Click on the gitpod button to create an empty workspace.
+
+* Enter the command, 'npm install'. Allow all packages to be installed.
+
+* After installing all packages, enter the command 'npm start'. This should open up the react default page.
+
+To prepare for a first deployment, remove the custom header in the App.js and Replace it with your desired content. Also, remember to remove unwanted imports.
+Add, Commit and Push to Github.
+
+## Deployment
+
+After creating a new gitpod workspace and set up for the new project, you can make the first deployment to Heroku.
+
+* On your dashboard, select 'Create New App'
+* Give the a unique name related to your project (heroku requires that all apps have a unique name).
+* Select a region that corresponds to where you are
+* Click 'Create App'.
+
+Back into the **Deploy** tab select GitHub as the **deployment method**
+* Locate your project repository and click **Connect**.
+* Click **Deploy branch** to start the application buildup process.
+
+After a successful deployment, the message **build successful** is displayed. You can click the button **Open app** to view the application in the browser.
+
+---
+
+## How to connect React frontend to the Backend API
+
+After setiing up and deployment successful to heroku, connect the frontend (workspace version and deployed version) and the backend API for effective communication between the two parts of the application.
+
+* On heroku dashboard, select the API application.
+* Click on the settings tab.
+* Scroll down and click on the *reveal config vars** vutton.
+*  Select **Add a new config var**
+* In the input displayed, add a new config var 'CLIENT_ORIGIN', set up up the value to the **URL** of your **deployed application**.
+* Add another config var 'CLIENT_ORIGIN_DEV', set up the value to the **URL** of your **gitpod workspace**
+
+      **NOTE:** 
+      * For effective connection, remember to remove the trailing slash at the end of the urls.
+      * Gitpod occasionally change its url, you can update the url if changed.
+      * Install the Axios library using the command 'npm install axios'.
+
+* In your frontend workspace, create a folder called 'API' and inside it create a file called 'axiosDefaults'.
+
+* import axios at the top of the file
+
+* Define your baseURL which is the unique URL of the deployed API project.
+
+* Set the content-type header to multi-part/form-data, this is required because the project deals with images as well as text in it's requests.
+
+* In order to avoid any CORS issues, set withCredentials to True.
+
+* Import this file into App.js to be used across all pages
 
 
+To aid the development, you will need to:
 
+* Install the following:
+    JSONView
+    ES7 React|React|GraphQL|React-Native-(snippets)
+    Preetier (code formatter)
+---
 
+## How to use React Bootstrap
 
+To use react bootstrap in your project, install using:
+    *  npm install react-bootstrap@1.6.3 bootstrap@4.6.0
+We need react bootstrap to use with react projects as it was specifically built to;
+1. Integrate bootstrap styles into react components.
+2. Remove dependency on  bootstrap.js and jQuery.
+3. Incorporates bootstrap functionality into react virtual DOM.
 
+* Add the css link to the head of the index html file located in the public directory.
+* Locate the manifest import link and add **crossorigin** value.
+       * crossorigin = 'use-credentials'
 
+---
+# How to Fork
 
+By forking a repository, you make a copy of a repository without affecting the original repository. You can fork this repository using the following steps.
 
+* Log in to [GitHub](https://github.com) and locate the [GitHub repository](https://github.com/belovedpearl/mycar_frontend).
 
+* At the top of the Repository below the "Settings" Tab on the menu,
+locate the "Fork" Button
 
+* Click the 'Fork' button.
 
+* You will have a copy of the original repository in your GitHub account.
+
+* Doing this will allow you make changes to your copy and keep the original safe.
+
+---
+
+# How to Clone
+
+* Log into [GitHub](https://github.com) and locate the [Github repository](https://github.com/belovedpearl/mycar_frontend).
+
+* Click the 'Code' dropdown at the right of the 'Open' button.
+
+* Copy the URL for the repository.
+
+* Open Git Bash in your IDE.
+
+* Change the current working directory to your desired location.
+
+* Type git clone in the CLI and then paste the URL you copied. 
+
+     * $ git clone https://github.com/
+
+* Press Enter to create your local clone.
 

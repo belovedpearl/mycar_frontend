@@ -20,11 +20,36 @@
     * [Wireframe 1](#wireframe-1-the-landing-page)
     * [Wireframe 2](#wireframe-2-the-post-detail-page)
     * [Wireframe 2](#wireframe-2-the-profile-page)
-* [User Stories](#user-stories)
-    * [Admin User Story](#admin-user-story)
-    * [General User User Story](#general-user-user-story)
-    * [Unregistered users User Story](#unregistered-user-user-story)
-    * [Registered users User Story](#registered-user-user-story)
+* [User Stories](#users-story)
+    * [Navigation and Authentication](#navigation-and-authentication)
+    * [Posts](#posts)
+    * [Reviews](#reviews)
+    * [Upvote and Downvote Posts](#upvote-and-downvote-posts)
+    * [Profile page](#profile-page)
+* [Features](#features)
+    * [General Project Structure](#general-project-structure)
+    * [Navigation](#navigation)
+    * [Authentication](#authentication)
+    * [Homepage/Landing Page](#homepagelanding-page)
+    * [Reusable Components](#reusable-components)
+* [Bugs](#bugs)
+* [Design Choices](#design-choices)
+* [Future Features](#future-features)
+* [Technologies Used](#technologies-used)
+    * [Languages](#languages)
+    * [Frameworks and web Applications](#frameworks-and-web-applications)
+* [Development and Deployment](#development-and-deployment)
+     * [Development Workspace Setup](#development-workspace-setup)
+     * [Deployment](#deployment)
+     * [How to connect React frontend to Backend](#how-to-connect-react-frontend-to-the-backend-api)
+     * [How to use React Bootstrap](#how-to-use-react-bootstrap)
+* [How to fork](#how-to-fork)
+* [How to Clone](#how-to-clone)
+* [Testing](#testing)
+     * [Automatic Testing](#automatic-testing)
+     * [Manual testing](#manual-testing)
+     * [Validator testing](#validator-testing)
+     
 
 
 ---
@@ -128,6 +153,12 @@ All wireframes are made with Balsamiq.
 ---
 # User's Story
 
+The project was managed using github [project board](https://github.com/users/belovedpearl/projects/9/views/1);
+
+[Project board used during the project development](screenshots/projectrep/projectboard.png)
+
+Sections of development was coordinated using different milestones to aid proper actualization of the targets. Project milestones setup is found [here](https://github.com/belovedpearl/mycar_frontend/milestones)
+
 ## Navigation and Authentication
 
 * As a User, I can view a uniform navbar on every page so that I can understand and navigate easily between the app's pages.
@@ -227,11 +258,11 @@ Navbar also differs based on the device used to access the site;
 
 * On a large screen
 
-[Navbar picture on a large screen]()
+[Navbar picture on a large screen](screenshots/livesite/navbarsignedin.png)
 
 * On tablets and mobile devices
 
-[Navbar picture on small screen]()
+[Navbar picture on small screen](screenshots/livesite/navbarmobile.png)
 
 For a logged out user, the NavBar renders the following icon;
 
@@ -243,7 +274,7 @@ For a logged out user, the NavBar renders the following icon;
 
 * Sign Up: New users are able to use this link to access the sign up form in order to create their account.
 
-[Picture of Navigation bar for logged out user]()
+[Picture of Navigation bar for logged out user](screenshots/livesite/navbarlargescreennot.png)
 
 For a logged in user, the Nav Bar renders the following links in addition to the logo and Home links described above;
 .
@@ -255,7 +286,7 @@ For a logged in user, the Nav Bar renders the following links in addition to the
 
 * Current User Profile Name and Picture: This shows the currently signed in user and also links up to the user's profile
 
-[Picture of the NavBar for signed in user]()
+[Picture of the NavBar for signed in user](screenshots/livesite/navbarsignedin.png)
 
 
 ## Authentication
@@ -264,22 +295,36 @@ New users can create an account by clicking on the 'Sign Up' link on the Navigat
 
 A sign up form is displayed, processed using the standard dj-rest/auth/registration. Once successful, a user profile is automatically setup and the user is able to access the full functions of a registered user.
 
-[Picture of the signup form]()
+[Picture of the signup form](screenshots/livesite/signupform.png)
+
+<details>
+<summary>Details of sign up form for small screens</summary>
+    <img src="screenshots/livesite/signupipad.png" width="80%">
+    <img src="screenshots/livesite/signupmobile.png" width="80%">
+</details>
+
+
 
 For an already existing user to access their account, a click on the Sign In menu option opens up the sign in form to complete to sign into their account.
 
 
-[Picture of the sign in form]()
+[Picture of the sign in form](screenshots/livesite/signinlarge.png)
+
+<details>
+<summary>Details of sign in form for small screens</summary>
+    <img src="screenshots/livesite/signinmobile.png" width="80%">
+    <img src="screenshots/livesite/signinipad.png" width="80%">
+</details>
 
 To promote accessibility, the authentication forms are linked to the other;
 
 The sign in form has a link to the sign up page for unauthenticated users trying to use the sign in form.
 
-[Picture of the signup link from the signin page]()
+[Picture of the signup link from the signin page](screenshots/livesite/signuplink.png)
 
 The sign up form has a link to the sign in page for authenticated users to useto access their account.
 
-[Picture of the signin link from the signup page]()
+[Picture of the signin link from the signup page](screenshots/livesite/signinlink.png)
 
 ---
 
@@ -303,7 +348,7 @@ All created posts on the platform are displayed on the homepage once successful.
 * Number of reviews on the post
 * Author's description of the post
 
-[Picture of the post page]()
+[Picture of the home page](screenshots/livesite/largescreenhomepage.png)
 
 ### Popular Profile Component
 
@@ -315,11 +360,11 @@ On small screens, popular profile component displays above the search feature on
 
 From this component, signed in users can follow another user clicking the 'Follow' button. For a signed out user/unauthenticated user, the follow button is not visible.
 
-[Picture of the popular profile component for signed in user]()
+[Picture of the popular profile component for signed in user](screenshots/livesite/popularprofilesignedin.png)
 
 If a user is following the profile user, the button shows 'unfollow' allowing the user to also unfollow a user from the profile component.
 
-[Picture of the popular profile component for signed out/unauthenticated user]()
+[Picture of the popular profile component for signed out/unauthenticated user](screenshots/livesite/popularprofilesignedout.png)
 
 An unauthenticated user is only able to see the profile display picture and name. They can also click on the profile picture to access the user's profile.
 
@@ -331,11 +376,11 @@ Each post is accessible by clicking on the list which then opens up the full pos
 
 On large screen, it displays on the left side of the posts list.
 
-[Picture of Trending posts components on large screens]()
+[Picture of Trending posts components on large screens](screenshots/livesite/trendingpostlarge.png)
 
 On small screens, it resolves to a dropdown featured on the Navbar from where the user can view the list of posts.
 
-[Picture of Trending posts components on small screens]()
+[Picture of Trending posts components on small screens](screenshots/livesite/trendingpostipadandmobile.png)
 
 ---
 
@@ -350,7 +395,7 @@ Users are able to search for different interest using the search bar on the home
 * Body types
 
 
-[Picture of the Search bar]()
+[Picture of the Search bar](screenshots/livesite/searchbar.png)
 
 ---
 
@@ -358,9 +403,9 @@ Users are able to search for different interest using the search bar on the home
 
 Feed filters posts by profiles the user is following. It can be accessed with the link 'Feed' on the navigation bar of a signed in user. A not found page is displayed if the user is not following any user.
 
-[Picture of the Feed page for a profile following others]()
+[Picture of the Feed page for a profile following others](screenshots/livesite/largescreenhomepage.png)
 
-[Picture of the Feed page for a profile not following others]()
+[Picture of the Feed page for a profile not following others](screenshots/livesite/noresults.png)
 
 ---
 
@@ -368,17 +413,22 @@ Feed filters posts by profiles the user is following. It can be accessed with th
 
 Post page displays all a post including the reviews. The page is accessed by a click on the post image from the home page/ feed page, it can also be accessed from the review icon on a post.
 
-[Picture of post page to non post author]()
+[Picture of post page to non post author](screenshots/livesite/postdetail.png)
 
-[Picture of post page to a post author]()
+[Picture of post page to a post author](screenshots/livesite/postdetailforauthor.png)
 
 Post owners are allowed access to a dropdown from where they can edit and delete the post using the edit and delete icons. Non-post owners cannot perform update or delete functions on any post.
 
-[Picture of delete and edit icons]()
+[Picture of delete and edit icons](screenshots/livesite/editdeletedropdown.png)
 
 Selecting the edit icons opens up the PostEditForm containing the already defined fields and user can add more information or change contents of his already created post. On successful post edit, users are redirected to the postpage where users can see the changes in the post detail he created.
 
-[Picture of the post edit form]()
+[Picture of the post edit form](screenshots/livesite/editpost.png)
+
+<details>
+<summary>Edit post form small screens</summary>
+    <img src="screenshots/livesite/editpostsmallscreen.png" width="80%">
+</details>
 
 
 Selecting the delete icon will remove the post from the API and the user is redirected back home where the post is no longer visible.

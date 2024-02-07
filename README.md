@@ -814,13 +814,76 @@ Due to time and my health while putting this project together, I have been able 
 * [Avatar component test](src/components/__tests__/Avatar.test.js)
 * [NotFound component test](src/components/__tests__/NotFound.test.js)
 
-![Picture of Automatic test report]()
+## Manual Test
 
-## Manual Testing
+User stories have been tested manually across the different pages of the website. Results of the tests are presented below;
+
+### Navigation
+
+|TEST | ACTION/EXPECTED RESULTS|COMMENT|
+|---   | --------
+|Uniform navbar on every page users understand and navigate easily. | A uniform Navbar is presented throughout the wesite | PASS |
+|Page navigate seemless without page refresh. | Infinite load is set to load more contents.| PASS |
+|Account registration | Using the signup form new users can create an account| PASS |
+|Sign in to already existing account.| Using the sign in form, already existing users can sign into the app| PASS |
+|Current user display| Currently signed in username and avatar is displayed| PASS |
+|Remain signed in| Users can stay signed in for up to 24 hours without having to sign in again| PASS |
+|Users contribution bears its author's username and avatar| Posts and review bear the author's username and avatar| PASS |
+
+### Posts
+|TEST | ACTION/EXPECTED RESULTS|COMMENT|
+|---   | --------
+|Signed in users should be able to add posts | Using the 'Add Post' link on the navbar, a signed in user is able to add post | PASS |
+|Posts created with image | To add a post, users must add image | PASS |
+|Post details | Click on the post image or review icon to access the post details| PASS |
+|Post update | Posts are updated on the homepage in the descending order of creation| PASS |
+|Infinite scroll| Continue to scroll through posts without having to use the next button| PASS |
+|Feed page| Click on feed icon to access the feed page| PASS |
+|Post update| Post authors can update posts and non-authors cannot| PASS |
+|Post delete| Posts authors can delete their posts| PASS |
+
+### Reviews
+
+|TEST | ACTION/EXPECTED RESULTS|COMMENT|
+|---   | --------
+|Signed in users should be able to add reviews| Clicking the post image or review icon access to add review is seen | PASS |
+|Review author seen | Every review has the author's username, avatar and date | PASS |
+|Post update | Posts are updated on the homepage in the descending order of creation| PASS |
+|Infinite scroll| Continue to scroll through reviews without having to use the next button| PASS |
+|Review delete|Review authors can delete their reviews| PASS |
+|Review update|Review authors can update  their reviews and non-authors cannot| PASS |
 
 
+### Upvote and Downvote Posts
 
-## Validator testing
+|TEST | ACTION/EXPECTED RESULTS|COMMENT|
+|---   | --------
+|Signed in users should be able to add upvote/downvote to a post| Clicking the thumbs up or thumbs down | PASS |
+|Upvote/Downvote count | Every thumbs-up/down should have a count next to it | PASS |
+|Users upvotes/downvotes | Clicking the profile avatar to access the users upvote/downvote tabs| PASS |
+|Add upvote and downvote| Users should not be able to upvote and downvote the same post | PASS |
+| Remove upvote/downvote | Double click each button to remove the vote | Pass |
+## Profile Page
+
+|TEST | ACTION/EXPECTED RESULTS|COMMENT|
+|---   | --------
+|User's profile is accessible| Clicking user's avatar | PASS |
+|Display picture for every profile | User's picture or the default image is seen | PASS |
+|Profile user's post | User's post should be visible on profile page load, if no post the user is informed that there has been no post contribution from the user| PASS |
+|Profile update| Profile owners should be able to update their profile information | PASS |
+|Profile username and password change| Profile owners should be able to change their username and password | PASS |
+|Followed profile component | Popular profile page displayed on homepage and profile page | PASS |
+| Follow profile | Users should be able to follow another profile | PASS |
+| Unfollow profile | Users should be able to unfollow another profile | PASS |
+
+<details>
+<summary>Details of other manual test done</summary>
+    <img src="screenshots/livesite/" width="80%">
+    <img src="screenshots/livesite/" width="80%">
+</details>
+
+
+## Validator Test
 
 ### W3C Validator
 

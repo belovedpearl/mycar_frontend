@@ -1,9 +1,9 @@
-import React from 'react'
-import styles from '../../styles/Post.module.css'
+import React from 'react';
+import styles from '../../styles/Post.module.css';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 // bootstrap imports
 import Card from 'react-bootstrap/Card';
-import Media from 'react-bootstrap/Media'
+import Media from 'react-bootstrap/Media';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
@@ -14,8 +14,8 @@ import { FaCommentMedical } from "react-icons/fa6";
 import { FaRegThumbsDown } from "react-icons/fa";
 
 import { axiosRes } from '../../api/axiosDefaults';
-import { MoreToDo } from '../../components/MoreToDo'
-import Share from '../../components/Share'
+import { MoreToDo } from '../../components/MoreToDo';
+import Share from '../../components/Share';
 
 const Post = (props) => {
     const {
@@ -39,10 +39,10 @@ const Post = (props) => {
         setPosts 
     } = props;
     
-    const currentUser = useCurrentUser()
-    const is_owner = currentUser?.username === owner
-    const history = useHistory()
-    const subject = `Share your opinion on ${make} ${model} post`
+    const currentUser = useCurrentUser();
+    const is_owner = currentUser?.username === owner;
+    const history = useHistory();
+    const subject = `Share your opinion on ${make} ${model} post`;
     // Allows post update
     const handleEdit = () => {
         history.push(`/posts/${id}/edit`);
@@ -51,11 +51,11 @@ const Post = (props) => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/posts/${id}/`);
-            history.goBack()
+            history.goBack();
         } catch (err){
             // console.log(err)
         }
-    }
+    };
 
     const handleUpvote = async () => {
         try {
@@ -73,11 +73,11 @@ const Post = (props) => {
                    ? { ...post, upvotes_count: post.upvotes_count + 1, upvote_id: data.id }
                    : post;
              })
-         }))
+         }));
         } catch (err){
          // console.log (err)
         }
-     }
+     };
      const removeUpvote = async () => {
         try {
              // send a delete request

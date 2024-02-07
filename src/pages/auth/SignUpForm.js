@@ -25,8 +25,8 @@ const SignUpForm = () => {
             password1: '',
             password2: '',
         }
-    )
-    const {username, password1, password2} = signUpData
+    );
+    const {username, password1, password2} = signUpData;
     const history = useHistory();
     const [errors, setErrors] = useState({});
 

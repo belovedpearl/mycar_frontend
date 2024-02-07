@@ -46,7 +46,7 @@
 * [How to fork](#how-to-fork)
 * [How to Clone](#how-to-clone)
 * [Testing](#testing)
-     * [Automatic Testing](#automatic-testing)
+     * [Automated Testing](#automatic-testing)
      * [Manual testing](#manual-testing)
      * [Validator testing](#validator-testing)
      
@@ -155,7 +155,7 @@ All wireframes are made with Balsamiq.
 
 The project was managed using github [project board](https://github.com/users/belovedpearl/projects/9/views/1);
 
-[Project board used during the project development](screenshots/projectrep/projectboard.png)
+![Project board used during the project development](screenshots/projectrep/projectboard.png)
 
 Sections of development was coordinated using different milestones to aid proper actualization of the targets. Project milestones setup is found [here](https://github.com/belovedpearl/mycar_frontend/milestones)
 
@@ -258,11 +258,11 @@ Navbar also differs based on the device used to access the site;
 
 * On a large screen
 
-[Navbar picture on a large screen](screenshots/livesite/navbarsignedin.png)
+![Navbar picture on a large screen](screenshots/livesite/navbarsignedin.png)
 
 * On tablets and mobile devices
 
-[Navbar picture on small screen](screenshots/livesite/navbarmobile.png)
+![Navbar picture on small screen](screenshots/livesite/navbarmobile.png)
 
 For a logged out user, the NavBar renders the following icon;
 
@@ -274,7 +274,7 @@ For a logged out user, the NavBar renders the following icon;
 
 * Sign Up: New users are able to use this link to access the sign up form in order to create their account.
 
-[Picture of Navigation bar for logged out user](screenshots/livesite/navbarlargescreennot.png)
+![Picture of Navigation bar for logged out user](screenshots/livesite/navbarlargescreennot.png)
 
 For a logged in user, the Nav Bar renders the following links in addition to the logo and Home links described above;
 .
@@ -286,7 +286,7 @@ For a logged in user, the Nav Bar renders the following links in addition to the
 
 * Current User Profile Name and Picture: This shows the currently signed in user and also links up to the user's profile
 
-[Picture of the NavBar for signed in user](screenshots/livesite/navbarsignedin.png)
+![Picture of the NavBar for signed in user](screenshots/livesite/navbarsignedin.png)
 
 
 ## Authentication
@@ -295,7 +295,7 @@ New users can create an account by clicking on the 'Sign Up' link on the Navigat
 
 A sign up form is displayed, processed using the standard dj-rest/auth/registration. Once successful, a user profile is automatically setup and the user is able to access the full functions of a registered user.
 
-[Picture of the signup form](screenshots/livesite/signupform.png)
+![Picture of the signup form](screenshots/livesite/signupform.png)
 
 <details>
 <summary>Details of sign up form for small screens</summary>
@@ -308,7 +308,7 @@ A sign up form is displayed, processed using the standard dj-rest/auth/registrat
 For an already existing user to access their account, a click on the Sign In menu option opens up the sign in form to complete to sign into their account.
 
 
-[Picture of the sign in form](screenshots/livesite/signinlarge.png)
+![Picture of the sign in form](screenshots/livesite/signinlarge.png)
 
 <details>
 <summary>Details of sign in form for small screens</summary>
@@ -320,11 +320,11 @@ To promote accessibility, the authentication forms are linked to the other;
 
 The sign in form has a link to the sign up page for unauthenticated users trying to use the sign in form.
 
-[Picture of the signup link from the signin page](screenshots/livesite/signuplink.png)
+![Picture of the signup link from the signin page](screenshots/livesite/signuplink.png)
 
 The sign up form has a link to the sign in page for authenticated users to useto access their account.
 
-[Picture of the signin link from the signup page](screenshots/livesite/signinlink.png)
+![Picture of the signin link from the signup page](screenshots/livesite/signinlink.png)
 
 ---
 
@@ -348,7 +348,7 @@ All created posts on the platform are displayed on the homepage once successful.
 * Number of reviews on the post
 * Author's description of the post
 
-[Picture of the home page](screenshots/livesite/largescreenhomepage.png)
+![Picture of the home page](screenshots/livesite/largescreenhomepage.png)
 
 ### Popular Profile Component
 
@@ -360,11 +360,11 @@ On small screens, popular profile component displays above the search feature on
 
 From this component, signed in users can follow another user clicking the 'Follow' button. For a signed out user/unauthenticated user, the follow button is not visible.
 
-[Picture of the popular profile component for signed in user](screenshots/livesite/popularprofilesignedin.png)
+![Picture of the popular profile component for signed in user](screenshots/livesite/popularprofilesignedin.png)
 
 If a user is following the profile user, the button shows 'unfollow' allowing the user to also unfollow a user from the profile component.
 
-[Picture of the popular profile component for signed out/unauthenticated user](screenshots/livesite/popularprofilesignedout.png)
+![Picture of the popular profile component for signed out/unauthenticated user](screenshots/livesite/popularprofilesignedout.png)
 
 An unauthenticated user is only able to see the profile display picture and name. They can also click on the profile picture to access the user's profile.
 
@@ -376,11 +376,11 @@ Each post is accessible by clicking on the list which then opens up the full pos
 
 On large screen, it displays on the left side of the posts list.
 
-[Picture of Trending posts components on large screens](screenshots/livesite/trendingpostlarge.png)
+![Picture of Trending posts components on large screens](screenshots/livesite/trendingpostlarge.png)
 
 On small screens, it resolves to a dropdown featured on the Navbar from where the user can view the list of posts.
 
-[Picture of Trending posts components on small screens](screenshots/livesite/trendingpostipadandmobile.png)
+![Picture of Trending posts components on small screens](screenshots/livesite/trendingpostipadandmobile.png)
 
 ---
 
@@ -395,7 +395,7 @@ Users are able to search for different interest using the search bar on the home
 * Body types
 
 
-[Picture of the Search bar](screenshots/livesite/searchbar.png)
+![Picture of the Search bar](screenshots/livesite/searchbar.png)
 
 ---
 
@@ -403,7 +403,7 @@ Users are able to search for different interest using the search bar on the home
 
 Feed filters posts by profiles the user is following. It can be accessed with the link 'Feed' on the navigation bar of a signed in user. A not found page is displayed if the user is not following any user.
 
-[Picture of the Feed page for a profile following others](screenshots/livesite/largescreenhomepage.png)
+![Picture of the Feed page for a profile following others](screenshots/livesite/largescreenhomepage.png)
 
 [Picture of the Feed page for a profile not following others](screenshots/livesite/noresults.png)
 
@@ -413,17 +413,17 @@ Feed filters posts by profiles the user is following. It can be accessed with th
 
 Post page displays all a post including the reviews. The page is accessed by a click on the post image from the home page/ feed page, it can also be accessed from the review icon on a post.
 
-[Picture of post page to non post author](screenshots/livesite/postdetail.png)
+![Picture of post page to non post author](screenshots/livesite/postdetail.png)
 
-[Picture of post page to a post author](screenshots/livesite/postdetailforauthor.png)
+![Picture of post page to a post author](screenshots/livesite/postdetailforauthor.png)
 
 Post owners are allowed access to a dropdown from where they can edit and delete the post using the edit and delete icons. Non-post owners cannot perform update or delete functions on any post.
 
-[Picture of delete and edit icons](screenshots/livesite/editdeletedropdown.png)
+![Picture of delete and edit icons](screenshots/livesite/editdeletedropdown.png)
 
 Selecting the edit icons opens up the PostEditForm containing the already defined fields and user can add more information or change contents of his already created post. On successful post edit, users are redirected to the postpage where users can see the changes in the post detail he created.
 
-[Picture of the post edit form](screenshots/livesite/editpost.png)
+![Picture of the post edit form](screenshots/livesite/editpost.png)
 
 <details>
 <summary>Edit post form small screens</summary>
@@ -439,19 +439,19 @@ From this page, users are able to use the share button, see upvotes and downvote
 
 Just below the post detail is the reviews section where authenticated users are allowed to add reviews about a car post.
 
-[Picture of review section for authenticated users]()
+![Picture of review section for authenticated users](screenshots/livesite/reviewauthor.png)
 
 If there are no reviews, users see the message informing them of no review and prompting them to add one.
 
-[Picture of review section with no reviews]()
+![Picture of review section with no reviews](screenshots/livesite/noreview.png)
 
 Review owners have access to edit and delete their reviews using the dropdown menu that pops up when the three dots is clicked.
 
-[Picture of delete and edit section for review owners]()
+![Picture of delete and edit section for review owners](screenshots/livesite/reviewauthordrop.png)
 
 Unauthenticated users can only view already existing reviews and cannot perform any actions on it.
 
-[picture of review section for unaunthenticated users]()
+![picture of review section for unaunthenticated users](screenshots/livesite/reviewsnonregistered.png)
 
 ### Share Post
 
@@ -459,20 +459,20 @@ I have added a share function to the website to allow users share contents of ea
 
 Using the [react share](https://www.npmjs.com/package/react-share) documentation on react, [this video](https://youtu.be/XViKPMwEZFU?si=VjywkKN-rYOY09Cx) and a bootstrap dropdown, I was able to include a share post feature on the platforms mentioned. Posts can be shared from the homepage and from the post detail page.
 
-[Picture of the share feature]()
+![Picture of the share feature](screenshots/livesite/sharefeature.png)
 
 ### Upvote and Downvote
 
 Authenticated users are able to add an upvote and downvote to post by clicking on the thumbs up and thumbs down icon respectively. The website is designed in a way that users that have created an upvote for a post cannot also create a downvote for the same vote to prevent double votes from the same user. Also double clicking the icon will remove the already created vote.
 Authors of posts are not allowed to upvote or downvote their posts.
 
-[Picture of upvote and downvote feature]()
+![Picture of upvote and downvote feature](screenshots/livesite/upvoteanddownvote.png)
 
 ### Profile Page
 
 The profile page holds the profile information about a user, it can be accessed by clicking on the profile picture of the user throughout the website.
 
-[Picture of profile page]()
+![Picture of profile page](screenshots/livesite/profileauthor.png)
 
 Information displayed by the profile page include the following;
 
@@ -492,19 +492,19 @@ The profile page conditionally renders the following profile information if avai
 
 A new profile is automatically created when a new user signs up to the platform.
 
-[Picture of a new user profile page]()
-
 To edit their profile information, users can use the three dots menu to access and update information about their profile.
 
-[Picture of the menu options on the profile page]()
+[Picture of the menu options on the profile page](screenshots/livesite/profiledropdown.png)
 
-[Picture of the edit profile form]()
+[Picture of the edit profile form](screenshots/livesite/editprofileform.png)
 
 From the profile page, each user can change their username and password by accessing the 'change username and change password form' clicking the menu icons desired.
 
-[Picture of the change password form]()
-
-[Picture of the change username form]()
+<details>
+<summary>Change password and username form</summary>
+    <img src="screenshots/livesite/changepassword.png" width="80%">
+    <img src="screenshots/livesite/changeusername.png" width="80%">
+</details>
 
 
 ### Follow and Unfollow
@@ -515,15 +515,19 @@ With each follow created by a user, the number of his following stats increases 
 
 Follow button is visible on the Popular profile components of an authenticated user and on the profile page
 
-[Picture of follow button on the popular profile page]()
-
-[Picture of follow button on the profile page]()
+<details>
+<summary>Follow button on popular profile and profile page</summary>
+    <img src="screenshots/livesite/followpopuprofile.png" width="80%">
+    <img src="screenshots/livesite/followprofile.png" width="80%">
+</details>
 
 Once a follow is established between two profiles, the follow button changes to unfollow allowing the user to change his mind about following a user. Once clicked, the followers stats of the profile reduces.
 
-[Picture of unfollow button on the popular profile page]()
-
-[Picture of unfollow button on the profile page]()
+<details>
+<summary>Unfollow button on popular profile component and profile page</summary>
+    <img src="screenshots/livesite/unfollowpopuprofile.png" width="80%">
+    <img src="screenshots/livesite/unfollowprofile.png" width="80%">
+</details>
 
 
 ## Reusable Components
@@ -531,14 +535,18 @@ Once a follow is established between two profiles, the follow button changes to 
 Asset:  Used to load images, messages and loading spinners across the website.
 Avatar Used to display avatars across the website.
 NavBar: Used across the website for uniform view to users.
-Not Found Page: Page displayed when users provides an invalid url.
+Not Found Page: Page displayed when users provides an invalid url. It has a button that returns the user back home.
 Three Dots: Used to access dropdown menu for further actions.
 MoreToDo: Used to allow users access the edit and delete functions
 Share: Reused on all posts to share contents across other platforms.
 
-[Picture of 3 dots]()
-[Picture of Profile Dropdown]()
-[Picture of MoreToDo Dropdown]()
+<details>
+<summary>Reusable components used</summary>
+    <img src="screenshots/livesite/threedots.png" width="80%">
+    <img src="screenshots/livesite/errorpage.png" width="80%">
+    <img src="screenshots/livesite/profiledropdown.png" width="80%">
+    <img src="screenshots/livesite/editdeletedropdown.png" width="80%">
+</details>
 
 ---
 
@@ -664,6 +672,10 @@ Google Chrome DevTools - Used to debug and test responsiveness
 
 [React Icons](https://react-icons.github.io/)
 
+[Squoosh](https://squoosh.app/) - Used to convert someimage to webp
+
+[Tiny png](https://tinypng.com/) - Used to compress images used
+
 ---
 # Development and Deployment
 
@@ -787,4 +799,38 @@ locate the "Fork" Button
      * $ git clone https://github.com/
 
 * Press Enter to create your local clone.
+
+---
+
+# Testing
+
+---
+
+## Automated Testing
+
+Due to time and my health while putting this project together, I have been able to write some test for different components used in the project.
+
+* [Asset component test](src/components/__tests__/Assets.js)
+* [Avatar component test](src/components/__tests__/Avatar.test.js)
+* [NotFound component test](src/components/__tests__/NotFound.test.js)
+
+![Picture of Automatic test report]()
+
+## Manual Testing
+
+
+
+## Validator testing
+
+### W3C Validator
+
+All pages have been passed through the w3 validation using the direct input method. Results can be viewed [here]().
+
+<!-- <details>
+<summary>Reusable components used</summary>
+    <img src="screenshots/livesite/threedots.png" width="80%">
+    <img src="screenshots/livesite/errorpage.png" width="80%">
+    <img src="screenshots/livesite/profiledropdown.png" width="80%">
+    <img src="screenshots/livesite/editdeletedropdown.png" width="80%">
+</details> -->
 

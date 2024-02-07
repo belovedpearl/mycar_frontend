@@ -22,17 +22,17 @@ import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
 
 const SignInForm = () => {
-    const setCurrentUser = useSetCurrentUser()
-    useRedirect('signedIn')
+    const setCurrentUser = useSetCurrentUser();
+    useRedirect('signedIn');
     const [signInData, setSignInData] = useState(
         {
             username: '',
             password: ''
         }
-    )
+    );
     const { username, password } = signInData;
-    const history = useHistory()
-    const [errors, setErrors] = useState({})
+    const history = useHistory();
+    const [errors, setErrors] = useState({});
 
     const handleChange = (event) => {
         setSignInData({
@@ -45,8 +45,8 @@ const SignInForm = () => {
         event.preventDefault();
         try {
             const {data} = await axios.post("/dj-rest-auth/login/", signInData);
-            setCurrentUser(data.user)
-            setTokenTimestamp(data)
+            setCurrentUser(data.user);
+            setTokenTimestamp(data);
             history.goBack();
         } catch (err) {
             setErrors(err.response?.data);

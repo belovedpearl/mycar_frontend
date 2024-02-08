@@ -17,9 +17,9 @@
  * [Background](#background)
  * [Target Audience](#target-audience)
  * [Wireframes](#wireframes)
-    * [Wireframe 1](#wireframe-1-the-landing-page)
-    * [Wireframe 2](#wireframe-2-the-post-detail-page)
-    * [Wireframe 2](#wireframe-2-the-profile-page)
+    * [Wireframe 1](#wireframes-1-the-landing-page)
+    * [Wireframe 2](#wireframe-2-the-post-details-page)
+    * [Wireframe 2](#wireframe-3-the-profile-page)
 * [User Stories](#users-story)
     * [Navigation and Authentication](#navigation-and-authentication)
     * [Posts](#posts)
@@ -46,9 +46,12 @@
 * [How to fork](#how-to-fork)
 * [How to Clone](#how-to-clone)
 * [Testing](#testing)
-     * [Automated Testing](#automatic-testing)
-     * [Manual testing](#manual-testing)
-     * [Validator testing](#validator-testing)
+     * [Automated Testing](#automated-testing)
+     * [Manual testing](#manual-test)
+     * [Validator testing](#validator-test)
+
+* [Credits](#credits)
+* [Acknowledgement](#acknowledgement)
      
 
 
@@ -405,7 +408,7 @@ Feed filters posts by profiles the user is following. It can be accessed with th
 
 ![Picture of the Feed page for a profile following others](screenshots/livesite/largescreenhomepage.png)
 
-[Picture of the Feed page for a profile not following others](screenshots/livesite/noresults.png)
+![Picture of the Feed page for a profile not following others](screenshots/livesite/noresults.png)
 
 ---
 
@@ -494,9 +497,9 @@ A new profile is automatically created when a new user signs up to the platform.
 
 To edit their profile information, users can use the three dots menu to access and update information about their profile.
 
-[Picture of the menu options on the profile page](screenshots/livesite/profiledropdown.png)
+![Picture of the menu options on the profile page](screenshots/livesite/profiledropdown.png)
 
-[Picture of the edit profile form](screenshots/livesite/editprofileform.png)
+![Picture of the edit profile form](screenshots/livesite/editprofileform.png)
 
 From the profile page, each user can change their username and password by accessing the 'change username and change password form' clicking the menu icons desired.
 
@@ -520,6 +523,7 @@ Follow button is visible on the Popular profile components of an authenticated u
     <img src="screenshots/livesite/followpopuprofile.png" width="80%">
     <img src="screenshots/livesite/followprofile.png" width="80%">
 </details>
+
 
 Once a follow is established between two profiles, the follow button changes to unfollow allowing the user to change his mind about following a user. Once clicked, the followers stats of the profile reduces.
 
@@ -554,28 +558,28 @@ Share: Reused on all posts to share contents across other platforms.
 
 * Access to XMLHttpRequest at 'https://mycardrfapi-d64556077ed4.herokuapp.com/dj-rest-auth/registration/' from origin 'https://3000-belovedpear-mycarfronte-xe7q5mhm7wg.ws-eu107.gitpod.io' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
-      * Removing the cookie blocker on my system fixed this. 
+       Removing the cookie blocker on my system fixed this. 
 
 * Sigin link not displaying - style on the font icon made it not visible
 
-      * Adjusting the icon dolor fixed this.
+       Adjusting the icon dolor fixed this.
       
 * Post edit not retaining image
 
-      * Replacing the 'Put method' in the request with a 'Patch' fixed this.
+       Replacing the 'Put method' in the request with a 'Patch' fixed this.
 
 * Classname styles not applying many times.
 
-      * Replacing the '' with a {} fixed many of the classes bugs I had.
+       Replacing the '' with a {} fixed many of the classes bugs I had.
 
 * webpackHotDevClient.js:138 src/pages/posts/TrendingCarPosts.js
   Line 24:8:  React Hook useEffect has a missing dependency: 'trendingCarPosts'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
       
-      * I removed the dependency array but I got an infinite loop, I read more about the dependency array and found out that I can ignore the warning 
+       I removed the dependency array but I got an infinite loop, I read more about the dependency array and found out that I can ignore the warning 
 
 * Share post feature not sharing the specific post content but the page its clicked on.
 
-       * Refactoring my code to share the specific post id fixed this.
+        Refactoring my code to share the specific post id fixed this.
 
 
 
@@ -623,65 +627,67 @@ Different color combination used and their contrast ratio is summarized below:
 ---
 
 # Technologies Used
+---
+
 
 ## Languages
 
-HTML5 - Provides the content and structure for the website
+* HTML5 - Provides the content and structure for the website
 
-CSS3 - Provides the styling for the website
+* CSS3 - Provides the styling for the website
 
-JavaScript - Used for interactivity of elements on the website
+* JavaScript - Used for interactivity of elements on the website
 
-React.js - Provides the base for the frontend components
+* React.js - Provides the base for the frontend components
 
 ## Frameworks and Web Applications
 
-[React Bootstrap](https://react-bootstrap-v4.netlify.app) - A css framework by bootstrap to be used by react projects.
+* [React Bootstrap](https://react-bootstrap-v4.netlify.app) - A css framework by bootstrap to be used by react projects.
 
-[Github](https://github.com) - Used to host the repository, store codes and commit history and also manage the project board.
+* [Github](https://github.com) - Used to host the repository, store codes and commit history and also manage the project board.
 
-[Balsamiq](https://balsamiq.cloud) - Used to create the wireframes
+* [Balsamiq](https://balsamiq.cloud) - Used to create the wireframes
 
-[Coolors](https://coolors.co/) - Used to pick the colour scheme of the website
+* [Coolors](https://coolors.co/) - Used to pick the colour scheme of the website
 
-[Favicon](https://favicon.io) - Used to create the favicon
+* [Favicon](https://favicon.io) - Used to create the favicon
 
-[Heroku](https://heroku.com) - A cloud platform hosts the deployed application.
+* [Heroku](https://heroku.com) - A cloud platform hosts the deployed application.
 
-[Google Fonts](https://fonts.google.com) - Used as a source to import the website font
+* [Google Fonts](https://fonts.google.com) - Used as a source to import the website font
 
-Lighthouse - Used to test site performance
+* [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?pli=1) - Used to test site performance
 
-Google Chrome DevTools - Used to debug and test responsiveness
+* [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to debug and test responsiveness
 
-[Cloudinary](https://cloudinary.com) - Used to hosts image files in the project.
+* [Cloudinary](https://cloudinary.com) - Used to hosts image files in the project.
 
-[Design AI](https://designs.ai) - Used to generate the illustrations used across the website
+* [Design AI](https://designs.ai) - Used to generate the illustrations used across the website
 
-[W3C Validation](https://validator.w3.org/) - Used to validate HTML code
+* [W3C Validation](https://validator.w3.org/) - Used to validate HTML code
 
-[w3 css Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
+* [W3 css Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
 
-[JSHint Validation](https://jshint.com) - Used to validate JavaScript code
+* [JSHint Validation](https://jshint.com) - Used to validate JavaScript code
 
-[Pexels](https://pexels.com) - Free stock image provider for posts and avatars that were uploaded
+* [Pexels](https://pexels.com) - Free stock image provider for posts and avatars that were uploaded
 
-[Vecteezy](https://www.vecteezy.com) - Used to source free vectors for default avatars.
+* [Vecteezy](https://www.vecteezy.com) - Used to source free vectors for default avatars.
 
-[Font Awesome](https://fontawesome.com) - Used for some of the icons.
+* [Font Awesome](https://fontawesome.com) - Used for some of the icons.
 
-[React Icons](https://react-icons.github.io/)
+* [React Icons](https://react-icons.github.io/)
 
-[Squoosh](https://squoosh.app/) - Used to convert someimage to webp
+* [Squoosh](https://squoosh.app/) - Used to convert someimage to webp
 
-[Tiny png](https://tinypng.com/) - Used to compress images used
+* [Tiny png](https://tinypng.com/) - Used to compress images used
 
 ---
 # Development and Deployment
 
 ## Development Workspace Setup
 
-* Create a new workspace using [code institute specific template](https://github.com/new?template_name=react-ci-template&template_owner=Code-Institute-Org).
+* Create a new workspace using this [code institute specific template](https://github.com/new?template_name=react-ci-template&template_owner=Code-Institute-Org).
 
 * Give your application a name
 
@@ -725,10 +731,11 @@ After setiing up and deployment successful to heroku, connect the frontend (work
 * In the input displayed, add a new config var 'CLIENT_ORIGIN', set up up the value to the **URL** of your **deployed application**.
 * Add another config var 'CLIENT_ORIGIN_DEV', set up the value to the **URL** of your **gitpod workspace**
 
-      **NOTE:** 
-      * For effective connection, remember to remove the trailing slash at the end of the urls.
-      * Gitpod occasionally change its url, you can update the url if changed.
-      * Install the Axios library using the command 'npm install axios'.
+**NOTE:**
+
+      - For effective connection, remember to remove the trailing slash at the  end of the urls.
+      - Gitpod occasionally change its url, you can update the url if changed.
+      - Install the Axios library using the command 'npm install axios'.
 
 * In your frontend workspace, create a folder called 'API' and inside it create a file called 'axiosDefaults'.
 
@@ -821,7 +828,7 @@ User stories have been tested manually across the different pages of the website
 ### Navigation
 
 |TEST | ACTION/EXPECTED RESULTS|COMMENT|
-|---   | --------
+|---   | -------- | --- |
 |Uniform navbar on every page users understand and navigate easily. | A uniform Navbar is presented throughout the wesite | PASS |
 |Page navigate seemless without page refresh. | Infinite load is set to load more contents.| PASS |
 |Account registration | Using the signup form new users can create an account| PASS |
@@ -832,7 +839,7 @@ User stories have been tested manually across the different pages of the website
 
 ### Posts
 |TEST | ACTION/EXPECTED RESULTS|COMMENT|
-|---   | --------
+|---   | -------- | --- |
 |Signed in users should be able to add posts | Using the 'Add Post' link on the navbar, a signed in user is able to add post | PASS |
 |Posts created with image | To add a post, users must add image | PASS |
 |Post details | Click on the post image or review icon to access the post details| PASS |
@@ -845,7 +852,7 @@ User stories have been tested manually across the different pages of the website
 ### Reviews
 
 |TEST | ACTION/EXPECTED RESULTS|COMMENT|
-|---   | --------
+|---   | -------- | --- |
 |Signed in users should be able to add reviews| Clicking the post image or review icon access to add review is seen | PASS |
 |Review author seen | Every review has the author's username, avatar and date | PASS |
 |Post update | Posts are updated on the homepage in the descending order of creation| PASS |
@@ -857,16 +864,17 @@ User stories have been tested manually across the different pages of the website
 ### Upvote and Downvote Posts
 
 |TEST | ACTION/EXPECTED RESULTS|COMMENT|
-|---   | --------
+|---   | -------- | --- |    
 |Signed in users should be able to add upvote/downvote to a post| Clicking the thumbs up or thumbs down | PASS |
 |Upvote/Downvote count | Every thumbs-up/down should have a count next to it | PASS |
 |Users upvotes/downvotes | Clicking the profile avatar to access the users upvote/downvote tabs| PASS |
 |Add upvote and downvote| Users should not be able to upvote and downvote the same post | PASS |
 | Remove upvote/downvote | Double click each button to remove the vote | Pass |
+
 ## Profile Page
 
 |TEST | ACTION/EXPECTED RESULTS|COMMENT|
-|---   | --------
+|---   | -------- | ---|
 |User's profile is accessible| Clicking user's avatar | PASS |
 |Display picture for every profile | User's picture or the default image is seen | PASS |
 |Profile user's post | User's post should be visible on profile page load, if no post the user is informed that there has been no post contribution from the user| PASS |
@@ -885,15 +893,112 @@ User stories have been tested manually across the different pages of the website
 
 ## Validator Test
 
-### W3C Validator
+### W3C HTML Validator
 
-All pages have been passed through the w3 validation using the direct input method. Results can be viewed [here]().
+The website url have been passed through the w3 validation using the url method.
 
-<!-- <details>
-<summary>Reusable components used</summary>
-    <img src="screenshots/livesite/threedots.png" width="80%">
-    <img src="screenshots/livesite/errorpage.png" width="80%">
-    <img src="screenshots/livesite/profiledropdown.png" width="80%">
-    <img src="screenshots/livesite/editdeletedropdown.png" width="80%">
-</details> -->
+![Picture of website html code validation](screenshots/validators/w3c/w3html.png)
+
+### W3C CSS Validator
+
+The website url have been passed through the w3 validation using the url method.
+
+![Picture of website css code validation](screenshots/validators/w3c/w3css.png)
+
+### Lighthouse Test
+
+Chrome Developer Tools google lighthouse was used to test the application; as known the testing is done within the areas, Performance, Accessibility, Best Practices and SEO. 
+
+The testing results are:
+
+Home Page:
+
+    Performance - 64
+
+    Accessibility - 83, 
+    
+    Best Practises - 91, 
+    
+    SEO - 100
+
+
+![Picture of lighthouse test result](screenshots/validators/lighthouse.png)
+
+
+### Browser Compatibility
+
+I have tested the application using different tools and browser. Chrome DevTools was used to test for responsiveness. The following have also been used.
+
+* Microsoft Edge
+* Chrome Browser
+* Mozilla firefox
+* Ipads
+* Samsung s20 
+* Samsung s21 ultra
+* Samsung Galaxy Z Fold 5
+
+---
+
+# Credits
+
+---
+
+## Media
+Images used to populate the posts are from [this](https://uk.images.search.yahoo.com/search/images;_ylt=AwrEna1aqcRljjMS2JlNBQx.;_ylu=c2VjA3NlYXJjaARzbGsDYnV0dG9u;_ylc) site.
+
+Images for the different profiles are from [Pexels](https://www.pexels.com/).
+
+Image the user Ayo was taken by my son to celebrate mother's day.
+
+Default profile image from [here](https://mungfali.com/explore/Default-Photo).
+
+Logo was made with [Logomakr](https://logomakr.com/)
+
+
+## Code
+
+To put up this project, the main inspiration was from the Code Institute's 'Moments Walkthrough project'. And with a desire to learn more I used the following videos and they really helped me in understanding some principles of react and the django rest;
+ 
+ * [Build a full stack react app](https://youtu.be/1RHDhtbqo94?si=tL_X5vy05Hiaz_tg)
+
+ * [Build a blog App](https://youtu.be/7kjud2ikReQ?si=VTjutKDxJ1TGztq5)
+
+ * [Django + react Series](https://youtu.be/soxd_xdHR0o?si=bleESMryyUhBM8gJ)
+
+ And I gained the knowledge for my share post concept from: 
+
+ * [React Share concept](https://youtu.be\XViKPMwEZFU?si=HnMgZDrbP3HI2UZh)
+
+Throughout the project, the following were helpful websites often used for troubleshooting:
+
+* [Code Institute](https://codeinstitute.net): Walkthrough modules for the Moments app.
+
+* [React Bootstrap documentation](https://react-bootstrap.netlify.app/): Documentation used for styling and to build responsive web pages.
+
+* [Code Institute Tutor Support](https://slack.com/intl/en-gb/): For help and support.
+
+* [React documentation](https://react.dev/): Everything you need to know about React
+
+* [Stack Overflow](https://stackoverflow.com/): My easy go to for troubleshooting and more understanding.
+
+* [W3Schools](https://www.w3schools.com/): I have gained so much from this in all aspect of coding.
+
+* [FreeCodeCamp](https://www.freecodecamp.org/): I have gained so much with their series of videos and tasks availble.
+
+---
+# Acknowledgement
+---
+
+My special thank you goes to the following:
+
+My number one cheerleader and husband Adegoke, for his encouragement and support along the way, for constantly reminding me that I can do this. I do cherish all your efforts. I know you sometimes don't understand your contribution means a lot to me; even when you don't know what it means in development, I can assure you it has always prompted me in the right direction.
+
+My kids (my boys), for allowing mummy take time out to learn and always assuring me that I can do it.
+
+My mentor 'Okwudiri Okoro' for his assurance when I had doubts with this section. He searched videos that used used the concept I had issues with.
+
+The tutors at code institute especially Oisin, Gemma for taking your time out to help me debug the issue I had during the build up of the project.
+
+
+
 

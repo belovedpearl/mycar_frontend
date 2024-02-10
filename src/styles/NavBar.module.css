@@ -6,11 +6,12 @@
     color: #ffffff !important;
     padding: 5px;
 }
-.Active i {
-  color: #848484;
+.Active {
+  background-color: #ff4136;
+  border-radius: 15px;
 }
 .LinkContainer:hover{
-  color: #848484;
+  color: #ffffff;
   transition: color ease-in-out 0.3s;
 }
 .ToggleButton{

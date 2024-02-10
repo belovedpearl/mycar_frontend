@@ -581,6 +581,10 @@ Share: Reused on all posts to share contents across other platforms.
 
         Refactoring my code to share the specific post id fixed this.
 
+* Web manifest error
+    
+       Adding the crossorigin attribute fixed this
+
 
 
 ---
@@ -905,6 +909,11 @@ The website url have been passed through the w3 validation using the url method.
 
 ![Picture of website css code validation](screenshots/validators/w3c/w3css.png)
 
+### ES Lint Validator
+
+I ran the command 'npx eslint' to different files in the project but I got no result. On further search I found [this](https://uk.video.search.yahoo.com/search/video?fr=mcafee&ei=UTF-8&p=how+to+use+eslint+to+validate+react+code&type=E210GB384G0#id=1&vid=4210eb730d4f3b6a138eee6debaf276b&action=click) video then I added '*"lint": "eslint src/**/*.js"' to the script definition in package.json file which enabled me to run eslint using the command 'npm run lint'. I got one error which was later fixed and ran the command again to get no error notice.
+
+
 ### Lighthouse Test
 
 Chrome Developer Tools google lighthouse was used to test the application; as known the testing is done within the areas, Performance, Accessibility, Best Practices and SEO. 
@@ -969,6 +978,8 @@ To put up this project, the main inspiration was from the Code Institute's 'Mome
 
  * [React Share concept](https://youtu.be\XViKPMwEZFU?si=HnMgZDrbP3HI2UZh)
 
+ I also used [this](https://uk.video.search.yahoo.com/search/video?fr=mcafee&ei=UTF-8&p=how+to+use+eslint+to+validate+react+code&type=E210GB384G0#id=1&vid=4210eb730d4f3b6a138eee6debaf276b&action=click) video to run eslint
+
 Throughout the project, the following were helpful websites often used for troubleshooting:
 
 * [Code Institute](https://codeinstitute.net): Walkthrough modules for the Moments app.
@@ -984,6 +995,7 @@ Throughout the project, the following were helpful websites often used for troub
 * [W3Schools](https://www.w3schools.com/): I have gained so much from this in all aspect of coding.
 
 * [FreeCodeCamp](https://www.freecodecamp.org/): I have gained so much with their series of videos and tasks availble.
+
 
 ---
 # Acknowledgement

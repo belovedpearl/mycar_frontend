@@ -7,8 +7,7 @@
     padding: 5px;
 }
 .Active {
-  background-color: #ff4136;
-  border-radius: 15px;
+  text-decoration: underline #ff4136 6px;
 }
 .LinkContainer:hover{
   color: #ffffff;

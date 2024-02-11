@@ -556,6 +556,9 @@ Share: Reused on all posts to share contents across other platforms.
 
 # Bugs
 
+---
+
+
 * Access to XMLHttpRequest at 'https://mycardrfapi-d64556077ed4.herokuapp.com/dj-rest-auth/registration/' from origin 'https://3000-belovedpear-mycarfronte-xe7q5mhm7wg.ws-eu107.gitpod.io' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
        Removing the cookie blocker on my system fixed this. 
@@ -585,6 +588,9 @@ Share: Reused on all posts to share contents across other platforms.
     
        Adding the crossorigin attribute fixed this
 
+I have left these 3 errors in the console that relates to user and token refresh for an unauthenticated user.
+
+![Picture of unauthenticated user console error](screenshots/validators/consoleerror.png)
 
 
 ---
@@ -625,6 +631,8 @@ Different color combination used and their contrast ratio is summarized below:
 * Explore react share library to implement the share function and also implement share count.
 
 * Allow users add more than one image.
+
+* Add a 'forgotten password' feature to allow users to allow users change password via emails.
 
 * Allow users report post and users to limit unwanted posts and hold users accountable for using the application
 

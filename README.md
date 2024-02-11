@@ -609,7 +609,9 @@ I have chosen to use shades of blue and some touch of red where required across 
 
 Body Background Color: A shade of white (#f5f5f5) was used throughout the website;
 
-Navigation Bar, upvote icons, downvote icons, review icon and count, follow button, post font color, All have a shade of blue (#001F3F).
+Navigation Bar, upvote icons, downvote icons, review icon and count, follow button. All have a shade of blue (#001F3F).
+
+Post font color and user's profile font color have the color #212529.
 
 In order to boldly project the upvote and downvote icons when clicked/ hovered, I used the red color shade #f85032 which is bright and eye catching.
 
@@ -617,9 +619,13 @@ Each posts features on a white (#ffffff) background to properly distinguish betw
 
 Different color combination used and their contrast ratio is summarized below:
 
-
+|Foreground | Background|Contrast Ratio|Comments on Large and Small Text| 
+|---   | -------- | --- |----|
+|#001F3F| #FFFFFF | 16.56:1 | PASS |
+|#FFFFFF | #001F3F | 16.56:1 | PASS |
+|#FFFFFF | #212529| 15.42:1 | PASS 
 ---
-.
+
 # Future Features
 
 * Improve user search experience by adding a title field consisting of 'make and model'.

@@ -136,7 +136,6 @@ const NavBar = () => {
                         onClick={() => setExpanded(!expanded)} 
                         aria-controls="basic-navbar-nav" 
                         className={styles.ToggleButton}
-                        // className={`${styles.ToggleButton} navbar-light`}
                     />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto text-left">
